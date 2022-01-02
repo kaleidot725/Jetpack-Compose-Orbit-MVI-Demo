@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.orbit-mvi:orbit-test-jvm:4.3.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.orbit-mvi/orbit-test-jvm/4.3.0/e6fb4b73dd38247c4e8f7510bccf83b4b8c0bb2a/orbit-test-jvm-4.3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.orbit-mvi/orbit-test-jvm/4.3.0/acff2b789bcee9dd227c450c6462945cd699f1e9/orbit-test-jvm-4.3.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.orbit-mvi/orbit-test-jvm/4.3.0/d97f170629d15df6b14a294cb097f5857a24d45d/orbit-test-jvm-4.3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
