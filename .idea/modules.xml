@@ -7,6 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Orbit.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Orbit.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Orbit.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Orbit.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Orbit.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Orbit.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Orbit.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Orbit.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Orbit.data.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Orbit.data.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Orbit.data.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Orbit.data.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Orbit.data.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Orbit.data.unitTest.iml" />
     </modules>
   </component>
 </project>

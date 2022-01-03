@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.orbit-mvi:orbit-viewmodel:4.3.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5bb9eff6e062585fcfdd93cbb9213706/transformed/orbit-viewmodel-4.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5bb9eff6e062585fcfdd93cbb9213706/transformed/orbit-viewmodel-4.3.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5bb9eff6e062585fcfdd93cbb9213706/transformed/orbit-viewmodel-4.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d30692678df404ec871ea1fdd8325234/transformed/orbit-viewmodel-4.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/187236a8161ad7bd9d0140f1b384235e/transformed/orbit-viewmodel-4.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/187236a8161ad7bd9d0140f1b384235e/transformed/orbit-viewmodel-4.3.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/187236a8161ad7bd9d0140f1b384235e/transformed/orbit-viewmodel-4.3.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.orbit-mvi/orbit-viewmodel/4.3.0/3b7181ccbd46257551dc3b865913728247483d28/orbit-viewmodel-4.3.0-javadoc.jar!/" />
