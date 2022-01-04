@@ -8,6 +8,9 @@ interface MultiplierDao {
     @Insert
     suspend fun insert(multiplier: MultiplierEntity)
 
+    @Insert
+    suspend fun insertAll(multipliers: List<MultiplierEntity>)
+
     @Update
     suspend fun update(multiplier: MultiplierEntity)
 

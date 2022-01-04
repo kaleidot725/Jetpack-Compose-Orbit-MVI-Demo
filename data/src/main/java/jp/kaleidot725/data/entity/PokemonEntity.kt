@@ -2,8 +2,6 @@ package jp.kaleidot725.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import jp.kaleidot725.data.dto.NextEvolutionDto
-import kotlinx.serialization.SerialName
 
 @Entity(
     tableName = "pokemons"

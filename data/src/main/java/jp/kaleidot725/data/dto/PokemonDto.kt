@@ -25,7 +25,7 @@ data class PokemonDto(
     @SerialName("name")
     val name: String,
     @SerialName("next_evolution")
-    val nextEvolution: List<NextEvolutionDto>,
+    val nextEvolutions: List<NextEvolutionDto>,
     @SerialName("num")
     val num: String,
     @SerialName("spawn_chance")
@@ -33,7 +33,7 @@ data class PokemonDto(
     @SerialName("spawn_time")
     val spawnTime: String,
     @SerialName("type")
-    val type: List<String>,
+    val types: List<String>,
     @SerialName("weaknesses")
     val weaknesses: List<String>,
     @SerialName("weight")

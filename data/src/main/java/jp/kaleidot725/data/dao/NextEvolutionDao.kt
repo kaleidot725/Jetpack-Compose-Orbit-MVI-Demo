@@ -8,6 +8,9 @@ interface NextEvolutionDao {
     @Insert
     suspend fun insert(nextEvolution: NextEvolutionEntity)
 
+    @Insert
+    suspend fun insertAll(nextEvolutions: List<NextEvolutionEntity>)
+
     @Update
     suspend fun update(nextEvolution: NextEvolutionEntity)
 
