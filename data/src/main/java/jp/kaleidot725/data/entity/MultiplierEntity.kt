@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "mulltipliers",
+    tableName = "multipliers",
     foreignKeys = [
         ForeignKey(
             entity = PokemonEntity::class,

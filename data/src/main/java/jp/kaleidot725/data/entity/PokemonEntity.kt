@@ -21,6 +21,5 @@ data class PokemonEntity(
     val num: String,
     val spawnChance: Double,
     val spawnTime: String,
-    val weaknesses: List<String>,
     val weight: String
 )

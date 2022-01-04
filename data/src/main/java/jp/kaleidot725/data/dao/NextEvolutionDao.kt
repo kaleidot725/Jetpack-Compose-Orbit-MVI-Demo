@@ -1,19 +1,19 @@
 package jp.kaleidot725.data.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import jp.kaleidot725.data.entity.NextEvolutionEntity
 
 @Dao
 interface NextEvolutionDao {
     @Insert
-    suspend fun insert(memoEntity: NextEvolutionEntity)
+    suspend fun insert(nextEvolution: NextEvolutionEntity)
 
     @Update
-    suspend fun update(memoEntity: NextEvolutionEntity)
+    suspend fun update(nextEvolution: NextEvolutionEntity)
 
     @Delete
-    suspend fun delete(memoEntity: NextEvolutionEntity)
+    suspend fun delete(nextEvolution: NextEvolutionEntity)
+
+    @Query("SELECT * FROM next_evolutions where pokemonId = :pokemonId")
+    suspend fun findNextEvolutions(pokemonId: Int): List<NextEvolutionEntity>
 }

@@ -1,18 +1,19 @@
 package jp.kaleidot725.data.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
+import jp.kaleidot725.data.entity.MultiplierEntity
 
 @Dao
 interface MultiplierDao {
     @Insert
-    suspend fun insert(memoEntity: MultiplierDao)
+    suspend fun insert(multiplier: MultiplierEntity)
 
     @Update
-    suspend fun update(memoEntity: MultiplierDao)
+    suspend fun update(multiplier: MultiplierEntity)
 
     @Delete
-    suspend fun delete(memoEntity: MultiplierDao)
+    suspend fun delete(multiplier: MultiplierEntity)
+
+    @Query("SELECT * FROM multipliers where pokemonId = :pokemonId")
+    suspend fun findMultipliers(pokemonId: Int): List<MultiplierEntity>
 }
