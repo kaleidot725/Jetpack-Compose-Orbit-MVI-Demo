@@ -1,6 +1,10 @@
 package jp.kaleidot725.orbit.ui.page
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import jp.kaleidot725.data.repository.PokemonRepository
+import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
@@ -15,8 +19,19 @@ sealed class CounterSideEffect {
     data class Toast(val text: String) : CounterSideEffect()
 }
 
-class CounterViewModel: ContainerHost<CounterState, CounterSideEffect>, ViewModel() {
+class CounterViewModel(
+    private val pokemonRepository: PokemonRepository
+) : ContainerHost<CounterState, CounterSideEffect>, ViewModel() {
     override val container = container<CounterState, CounterSideEffect>(CounterState())
+
+    init {
+        viewModelScope.launch {
+            pokemonRepository.fetch()
+            val test = pokemonRepository.load()
+            Log.v("TEST", test.toString())
+        }
+    }
+
 
     fun increment() = intent {
         postSideEffect(CounterSideEffect.Toast("Increment"))

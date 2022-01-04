@@ -7,35 +7,37 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PokemonDto(
     @SerialName("avg_spawns")
-    val avgSpawns: Int,
+    val avgSpawns: Double = 0.0,
     @SerialName("candy")
-    val candy: String,
+    val candy: String? = null,
     @SerialName("candy_count")
-    val candyCount: Int,
+    val candyCount: Int = 0,
     @SerialName("egg")
-    val egg: String,
+    val egg: String? = null,
     @SerialName("height")
-    val height: String,
+    val height: String? = null,
     @SerialName("id")
-    val id: Int,
+    val id: Int = 0,
     @SerialName("img")
-    val img: String,
+    val img: String? = null,
     @SerialName("multipliers")
-    val multipliers: List<Double>,
+    val multipliers: List<Double>? = null,
     @SerialName("name")
-    val name: String,
+    val name: String? = null,
     @SerialName("next_evolution")
-    val nextEvolutions: List<NextEvolutionDto>,
+    val nextEvolutions: List<NextEvolutionDto>? = null,
+    @SerialName("prev_evolution")
+    val prevEvolutions: List<PrevEvolutionDto>? = null,
     @SerialName("num")
-    val num: String,
+    val num: String? = null,
     @SerialName("spawn_chance")
-    val spawnChance: Double,
+    val spawnChance: Double = 0.0,
     @SerialName("spawn_time")
-    val spawnTime: String,
+    val spawnTime: String? = null,
     @SerialName("type")
-    val types: List<String>,
+    val types: List<String>? = null,
     @SerialName("weaknesses")
-    val weaknesses: List<String>,
+    val weaknesses: List<String>? = null,
     @SerialName("weight")
-    val weight: String
+    val weight: String? = null
 )

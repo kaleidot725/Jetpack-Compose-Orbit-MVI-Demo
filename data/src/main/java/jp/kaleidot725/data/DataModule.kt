@@ -2,6 +2,8 @@ package jp.kaleidot725.data
 
 import androidx.room.Room
 import jp.kaleidot725.data.database.AppDatabase
+import jp.kaleidot725.data.datasource.PokemonDataSource
+import jp.kaleidot725.data.repository.PokemonRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -11,22 +13,48 @@ val dataModule = module {
     }
 
     factory {
-        get<AppDatabase>().getMultiplierDao()
+        PokemonDataSource(androidContext())
     }
 
     factory {
-        get<AppDatabase>().getNextEvolutionDao()
+        val db: AppDatabase = get()
+        db.getMultiplierDao()
     }
 
     factory {
-        get<AppDatabase>().getPokemonDao()
+        val db: AppDatabase = get()
+        db.getNextEvolutionDao()
     }
 
     factory {
-        get<AppDatabase>().getTypeDao()
+        val db: AppDatabase = get()
+        db.getPrevEvolutionDao()
     }
 
     factory {
-        get<AppDatabase>().getWeaknessDao()
+        val db: AppDatabase = get()
+        db.getPokemonDao()
+    }
+
+    factory {
+        val db: AppDatabase = get()
+        db.getTypeDao()
+    }
+
+    factory {
+        val db: AppDatabase = get()
+        db.getWeaknessDao()
+    }
+
+    factory {
+        PokemonRepository(
+            pokemonDataSource = get(),
+            pokemonDao = get(),
+            multiplierDao = get(),
+            nextEvolutionDao = get(),
+            prevEvolutionDao = get(),
+            typeDao = get(),
+            weaknessDao = get()
+        )
     }
 }

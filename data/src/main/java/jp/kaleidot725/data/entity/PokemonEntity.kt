@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
     tableName = "pokemons"
 )
 data class PokemonEntity(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     val id: Int,
-    val avgSpawns: Int,
+    val avgSpawns: Double,
     val candy: String,
     val candyCount: Int,
     val egg: String,

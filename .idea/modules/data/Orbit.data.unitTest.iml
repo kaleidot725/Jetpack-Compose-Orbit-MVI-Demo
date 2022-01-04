@@ -37,6 +37,8 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../data/build/generated/ap_generated_sources/debugUnitTest/out" />
+    <content url="file://$MODULE_DIR$/../../../data/build/generated/source/kapt/debugUnitTest" />
+    <content url="file://$MODULE_DIR$/../../../data/build/generated/source/kaptKotlin/debugUnitTest" />
     <content url="file://$MODULE_DIR$/../../../data/src/test">
       <sourceFolder url="file://$MODULE_DIR$/../../../data/src/test/java" isTestSource="true" />
     </content>

@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 val appModule = module {
     viewModel {
-        CounterViewModel()
+        CounterViewModel(get())
     }
 }

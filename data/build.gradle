@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id "org.jetbrains.kotlin.kapt"
+    id 'org.jetbrains.kotlin.plugin.serialization'
 }
 
 android {
@@ -41,7 +43,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
 
     // Room
-    annotationProcessor("androidx.room:room-compiler:2.4.0")
+    kapt("androidx.room:room-compiler:2.4.0")
     implementation("androidx.room:room-runtime:2.4.0")
     implementation("androidx.room:room-ktx:2.4.0")
 
