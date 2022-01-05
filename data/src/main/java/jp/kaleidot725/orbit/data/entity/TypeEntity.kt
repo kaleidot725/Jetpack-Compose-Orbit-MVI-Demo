@@ -1,11 +1,11 @@
-package jp.kaleidot725.data.entity
+package jp.kaleidot725.orbit.data.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "prev_evolutions",
+    tableName = "types",
     foreignKeys = [
         ForeignKey(
             entity = PokemonEntity::class,
@@ -15,10 +15,9 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-class PrevEvolutionEntity(
+class TypeEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val pokemonId: Int,
-    val name: String,
-    val num: String
+    val value: String
 )

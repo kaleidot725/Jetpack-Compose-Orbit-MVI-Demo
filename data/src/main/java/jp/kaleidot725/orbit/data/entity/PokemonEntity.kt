@@ -1,4 +1,4 @@
-package jp.kaleidot725.data.entity
+package jp.kaleidot725.orbit.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

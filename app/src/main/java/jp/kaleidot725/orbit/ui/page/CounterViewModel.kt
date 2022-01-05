@@ -3,7 +3,7 @@ package jp.kaleidot725.orbit.ui.page
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import jp.kaleidot725.data.repository.PokemonRepository
+import jp.kaleidot725.orbit.data.repository.PokemonRepository
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent

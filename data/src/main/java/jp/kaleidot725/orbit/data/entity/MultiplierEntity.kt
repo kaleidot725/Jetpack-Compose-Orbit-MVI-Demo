@@ -1,11 +1,11 @@
-package jp.kaleidot725.data.entity
+package jp.kaleidot725.orbit.data.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "types",
+    tableName = "multipliers",
     foreignKeys = [
         ForeignKey(
             entity = PokemonEntity::class,
@@ -15,9 +15,9 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-class TypeEntity(
+class MultiplierEntity(
     @PrimaryKey(autoGenerate = true)
-    val id : Int,
+    val id: Int,
     val pokemonId: Int,
-    val value: String
+    val value: Double
 )

@@ -1,9 +1,9 @@
-package jp.kaleidot725.data
+package jp.kaleidot725.orbit.data
 
 import androidx.room.Room
-import jp.kaleidot725.data.database.AppDatabase
-import jp.kaleidot725.data.datasource.PokemonDataSource
-import jp.kaleidot725.data.repository.PokemonRepository
+import jp.kaleidot725.orbit.data.database.AppDatabase
+import jp.kaleidot725.orbit.data.datasource.PokemonDataSource
+import jp.kaleidot725.orbit.data.repository.PokemonRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 

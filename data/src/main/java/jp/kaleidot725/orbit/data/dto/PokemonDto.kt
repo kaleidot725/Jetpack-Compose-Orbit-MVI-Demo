@@ -1,4 +1,4 @@
-package jp.kaleidot725.data.dto
+package jp.kaleidot725.orbit.data.dto
 
 
 import kotlinx.serialization.SerialName

@@ -1,11 +1,11 @@
-package jp.kaleidot725.data.dto
+package jp.kaleidot725.orbit.data.dto
 
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class NextEvolutionDto(
+data class PrevEvolutionDto(
     @SerialName("name")
     val name: String,
     @SerialName("num")

@@ -1,7 +1,7 @@
-package jp.kaleidot725.data.dao
+package jp.kaleidot725.orbit.data.dao
 
 import androidx.room.*
-import jp.kaleidot725.data.entity.WeaknessEntity
+import jp.kaleidot725.orbit.data.entity.WeaknessEntity
 
 @Dao
 interface WeaknessDao {

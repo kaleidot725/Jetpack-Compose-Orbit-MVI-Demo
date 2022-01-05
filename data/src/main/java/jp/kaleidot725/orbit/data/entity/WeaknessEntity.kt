@@ -1,4 +1,4 @@
-package jp.kaleidot725.data.entity
+package jp.kaleidot725.orbit.data.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -17,7 +17,7 @@ import androidx.room.PrimaryKey
 )
 class WeaknessEntity(
     @PrimaryKey(autoGenerate = true)
-    val id : Int,
+    val id: Int,
     val pokemonId: Int,
     val value: String
 )

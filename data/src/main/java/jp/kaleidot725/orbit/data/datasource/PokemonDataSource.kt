@@ -1,7 +1,7 @@
-package jp.kaleidot725.data.datasource
+package jp.kaleidot725.orbit.data.datasource
 
 import android.content.Context
-import jp.kaleidot725.data.dto.PokemonDto
+import jp.kaleidot725.orbit.data.dto.PokemonDto
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream

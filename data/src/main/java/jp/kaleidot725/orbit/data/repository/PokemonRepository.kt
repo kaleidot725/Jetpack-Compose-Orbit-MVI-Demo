@@ -1,9 +1,9 @@
-package jp.kaleidot725.data.repository
+package jp.kaleidot725.orbit.data.repository
 
-import jp.kaleidot725.data.dao.*
-import jp.kaleidot725.data.datasource.PokemonDataSource
-import jp.kaleidot725.data.dto.PokemonDto
-import jp.kaleidot725.data.entity.*
+import jp.kaleidot725.orbit.data.dao.*
+import jp.kaleidot725.orbit.data.datasource.PokemonDataSource
+import jp.kaleidot725.orbit.data.dto.PokemonDto
+import jp.kaleidot725.orbit.data.entity.*
 
 class PokemonRepository(
     private val pokemonDataSource: PokemonDataSource,

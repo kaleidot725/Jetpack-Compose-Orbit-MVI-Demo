@@ -1,9 +1,9 @@
-package jp.kaleidot725.data.database
+package jp.kaleidot725.orbit.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import jp.kaleidot725.data.dao.*
-import jp.kaleidot725.data.entity.*
+import jp.kaleidot725.orbit.data.dao.*
+import jp.kaleidot725.orbit.data.entity.*
 
 @Database(
     entities = [MultiplierEntity::class, NextEvolutionEntity::class, PrevEvolutionEntity::class, PokemonEntity::class, TypeEntity::class, WeaknessEntity::class],

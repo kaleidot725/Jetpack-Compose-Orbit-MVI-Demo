@@ -1,8 +1,8 @@
-package jp.kaleidot725.data.dao
+package jp.kaleidot725.orbit.data.dao
 
 import androidx.room.*
-import jp.kaleidot725.data.entity.PokemonDetails
-import jp.kaleidot725.data.entity.PokemonEntity
+import jp.kaleidot725.orbit.data.entity.PokemonDetails
+import jp.kaleidot725.orbit.data.entity.PokemonEntity
 
 @Dao
 interface PokemonDao {
