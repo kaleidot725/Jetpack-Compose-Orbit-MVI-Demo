@@ -3,6 +3,7 @@ package jp.kaleidot725.orbit
 import android.app.Application
 import jp.kaleidot725.orbit.data.dataModule
 import jp.kaleidot725.orbit.di.appModule
+import jp.kaleidot725.orbit.domain.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -14,7 +15,7 @@ class MainApplication : Application() {
         startKoin {
             androidLogger(if (BuildConfig.DEBUG) Level.ERROR else Level.NONE)
             androidContext(this@MainApplication)
-            modules(appModule, dataModule)
+            modules(appModule, domainModule, dataModule)
         }
     }
 }
