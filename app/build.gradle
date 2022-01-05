@@ -53,6 +53,7 @@ android {
 dependencies {
     // Module
     implementation project(":data")
+    implementation project(":domain")
 
     // Compose
     implementation 'androidx.core:core-ktx:1.7.0'

@@ -11,6 +11,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Orbit.data.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Orbit.data.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Orbit.data.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Orbit.data.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Orbit.data.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Orbit.data.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Orbit.domain.unitTest.iml" />
     </modules>
   </component>
 </project>
