@@ -1,6 +1,6 @@
 package jp.kaleidot725.orbit.di
 
-import jp.kaleidot725.orbit.ui.page.library.PokemonLibraryViewModel
+import jp.kaleidot725.orbit.ui.pages.library.PokemonLibraryViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

@@ -1,4 +1,4 @@
-package jp.kaleidot725.orbit.ui.page.library
+package jp.kaleidot725.orbit.ui.pages.library
 
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
 

@@ -1,4 +1,4 @@
-package jp.kaleidot725.orbit.ui.page.library
+package jp.kaleidot725.orbit.ui.pages.library
 
 import androidx.lifecycle.ViewModel
 import jp.kaleidot725.orbit.domain.usecase.FetchAllPokemonUseCase
