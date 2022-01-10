@@ -2,10 +2,7 @@ package jp.kaleidot725.orbit.ui.atoms
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -23,21 +20,26 @@ import coil.compose.rememberImagePainter
 @Composable
 fun ImageCard(title: String, imageUrl: String, modifier: Modifier = Modifier) {
     Card(shape = RoundedCornerShape(8.dp), modifier = modifier) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(8.dp)
-        ) {
-            Image(
-                painter = rememberImagePainter(imageUrl),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier.fillMaxSize()
-            )
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .padding(8.dp)
+                    .align(Alignment.Center)
+            ) {
+                Image(
+                    painter = rememberImagePainter(imageUrl),
+                    contentDescription = null,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier
+                        .size(100.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
 
-            Text(
-                text = title, modifier = Modifier.align(Alignment.BottomCenter)
-            )
+                Text(
+                    text = title, modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
+            }
         }
     }
 }
