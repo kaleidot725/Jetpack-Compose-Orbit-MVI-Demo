@@ -1,16 +1,17 @@
 package jp.kaleidot725.orbit.ui.pages.library
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import jp.kaleidot725.orbit.ui.molecules.SearchBar
 import jp.kaleidot725.orbit.ui.organisms.PokemonList
+import jp.kaleidot725.orbit.ui.templates.Page
 import kotlinx.coroutines.flow.collect
 
 @Composable
@@ -21,15 +22,25 @@ fun PokemonLibraryPage(viewModel: PokemonLibraryViewModel) {
         viewModel.container.sideEffectFlow.collect { /** Do Nothing */ }
     }
 
-    Surface(modifier = Modifier.fillMaxSize()) {
-        Box {
+    Page(
+        header = {
+            SearchBar(
+                searchText = "SEARCH TEXT",
+                onChangedSearchText = { },
+                onSearch = { /*TODO*/ },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            )
+        },
+        content = {
             PokemonList(
                 details = state.details,
                 modifier = Modifier
                     .wrapContentHeight()
                     .fillMaxWidth()
-                    .align(Alignment.Center)
             )
-        }
-    }
+        },
+        modifier = Modifier.fillMaxSize()
+    )
 }

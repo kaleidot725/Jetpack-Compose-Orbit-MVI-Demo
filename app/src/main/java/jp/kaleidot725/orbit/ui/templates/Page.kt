@@ -2,6 +2,7 @@ package jp.kaleidot725.orbit.ui.templates
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,10 +15,12 @@ fun Page(
     content: @Composable () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
-        Column {
-            header()
-            content()
+    Surface(modifier = modifier) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            Column {
+                header()
+                content()
+            }
         }
     }
 }
