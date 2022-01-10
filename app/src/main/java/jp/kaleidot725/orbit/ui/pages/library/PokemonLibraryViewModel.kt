@@ -19,8 +19,8 @@ class PokemonLibraryViewModel(
     init {
         intent {
             fetchAllPokemonUseCase()
-            val pokemons = loadAllPokemonUseCase()
-            reduce { state.copy(details = pokemons) }
+            val details = loadAllPokemonUseCase()
+            reduce { state.copy(details = details) }
         }
     }
 }

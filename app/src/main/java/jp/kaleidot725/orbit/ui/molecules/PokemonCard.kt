@@ -15,10 +15,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import jp.kaleidot725.orbit.data.entity.PokemonDetails
+import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-fun ImageCard(title: String, imageUrl: String, modifier: Modifier = Modifier) {
+fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
     Card(shape = RoundedCornerShape(8.dp), modifier = modifier) {
         Box(modifier = Modifier.fillMaxSize()) {
             Column(
@@ -28,7 +30,7 @@ fun ImageCard(title: String, imageUrl: String, modifier: Modifier = Modifier) {
                     .align(Alignment.Center)
             ) {
                 Image(
-                    painter = rememberImagePainter(imageUrl),
+                    painter = rememberImagePainter(pokemonDetails.pokemon.img),
                     contentDescription = null,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier
@@ -37,7 +39,8 @@ fun ImageCard(title: String, imageUrl: String, modifier: Modifier = Modifier) {
                 )
 
                 Text(
-                    text = title, modifier = Modifier.align(Alignment.CenterHorizontally)
+                    text = pokemonDetails.pokemon.name,
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
             }
         }
@@ -47,9 +50,8 @@ fun ImageCard(title: String, imageUrl: String, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun Preview_PokemonCard() {
-    ImageCard(
-        title = "Bulbasaur",
-        imageUrl = "http://www.serebii.net/pokemongo/pokemon/001.png",
+    PokemonCard(
+        pokemonDetails = SAMPLE_POKEMON_DETAILS,
         modifier = Modifier
             .size(150.dp)
             .background(Color.Black)
