@@ -4,11 +4,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import jp.kaleidot725.orbit.ui.common.UiStatus
+import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.SearchBar
 import jp.kaleidot725.orbit.ui.organisms.PokemonList
 import jp.kaleidot725.orbit.ui.templates.Page
@@ -34,12 +37,22 @@ fun PokemonLibraryPage(viewModel: PokemonLibraryViewModel) {
             )
         },
         content = {
-            PokemonList(
-                details = state.details,
-                modifier = Modifier
-                    .wrapContentHeight()
-                    .fillMaxWidth()
-            )
+            when (state.status) {
+                UiStatus.Loading -> {
+                    LoadingIndicator(modifier = Modifier.fillMaxSize())
+                }
+                UiStatus.Success -> {
+                    PokemonList(
+                        details = state.details,
+                        modifier = Modifier
+                            .wrapContentHeight()
+                            .fillMaxWidth()
+                    )
+                }
+                is UiStatus.Failed -> {
+                    Text(text = state.status.message)
+                }
+            }
         },
         modifier = Modifier.fillMaxSize()
     )
