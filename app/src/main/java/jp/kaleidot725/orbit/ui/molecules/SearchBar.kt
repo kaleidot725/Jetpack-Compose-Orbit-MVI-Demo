@@ -2,6 +2,7 @@ package jp.kaleidot725.orbit.ui.molecules
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,7 +14,12 @@ fun SearchBar(
     onChangedSearchText: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    TextField(value = searchText, onValueChange = onChangedSearchText, modifier = modifier)
+    TextField(
+        value = searchText,
+        onValueChange = onChangedSearchText,
+        modifier = modifier,
+        label = { Text("Search") }
+    )
 }
 
 @Preview

@@ -1,13 +1,11 @@
 package jp.kaleidot725.orbit.ui.pages.library
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import jp.kaleidot725.orbit.ui.common.UiStatus
@@ -49,7 +47,12 @@ fun PokemonLibraryPage(viewModel: PokemonLibraryViewModel) {
                     )
                 }
                 is UiStatus.Failed -> {
-                    Text(text = state.status.message)
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        Text(
+                            text = state.status.message,
+                            modifier = Modifier.align(Alignment.Center)
+                        )
+                    }
                 }
             }
         },

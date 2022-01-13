@@ -45,11 +45,20 @@ class PokemonLibraryViewModel(
                 val details = searchPokemonUseCase(state.searchText)
                 delay(1000)
 
-                reduce {
-                    state.copy(
-                        status = UiStatus.Success,
-                        details = details
-                    )
+                if (details.isNotEmpty()) {
+                    reduce {
+                        state.copy(
+                            status = UiStatus.Success,
+                            details = details
+                        )
+                    }
+                } else {
+                    reduce {
+                        state.copy(
+                            status = UiStatus.Failed("Not Found"),
+                            details = details
+                        )
+                    }
                 }
             }
         }
