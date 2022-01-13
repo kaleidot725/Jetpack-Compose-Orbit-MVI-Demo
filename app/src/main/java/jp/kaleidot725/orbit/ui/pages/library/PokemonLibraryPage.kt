@@ -28,9 +28,8 @@ fun PokemonLibraryPage(viewModel: PokemonLibraryViewModel) {
     Page(
         header = {
             SearchBar(
-                searchText = "SEARCH TEXT",
-                onChangedSearchText = { },
-                onSearch = { /*TODO*/ },
+                searchText = state.searchText,
+                onChangedSearchText = { viewModel.search(it) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp)

@@ -11,7 +11,6 @@ import androidx.compose.ui.tooling.preview.Preview
 fun SearchBar(
     searchText: String,
     onChangedSearchText: (String) -> Unit,
-    onSearch: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     TextField(value = searchText, onValueChange = onChangedSearchText, modifier = modifier)
@@ -23,7 +22,6 @@ fun SearchBar_Preview() {
     SearchBar(
         searchText = "SEARCH TEXT",
         onChangedSearchText = {},
-        onSearch = {},
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()

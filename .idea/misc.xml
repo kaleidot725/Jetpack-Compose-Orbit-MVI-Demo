@@ -15,11 +15,13 @@
         <entry key="../../../../../layout/compose-model-1641780093081.xml" value="0.30405405405405406" />
         <entry key="../../../../../layout/compose-model-1641781007050.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1641781722353.xml" value="0.33" />
+        <entry key="../../../../../layout/compose-model-1642069874839.xml" value="0.648910411622276" />
+        <entry key="../../../../../layout/compose-model-1642079051520.xml" value="0.1" />
         <entry key="app/src/main/res/xml/network_policy.xml" value="0.2994791666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

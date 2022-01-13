@@ -8,7 +8,7 @@ val appModule = module {
     viewModel {
         PokemonLibraryViewModel(
             fetchAllPokemonUseCase = get(),
-            loadAllPokemonUseCase = get()
+            searchPokemonUseCase = get()
         )
     }
 }
