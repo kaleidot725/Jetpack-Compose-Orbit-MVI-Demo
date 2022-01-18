@@ -2,6 +2,7 @@ package jp.kaleidot725.orbit.ui.atoms
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -15,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import jp.kaleidot725.orbit.R
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
 
@@ -30,9 +32,21 @@ fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
                     .align(Alignment.Center)
             ) {
                 Image(
-                    painter = rememberImagePainter(pokemonDetails.pokemon.img),
                     contentDescription = null,
                     contentScale = ContentScale.Fit,
+                    painter = rememberImagePainter(pokemonDetails.pokemon.img) {
+                        crossfade(200)
+                        placeholder(
+                            if (isSystemInDarkTheme()) {
+                                R.drawable.ic_question_white
+                            } else {
+                                R.drawable.ic_question_black
+                            }
+                        )
+                        error(
+                            R.drawable.ic_error
+                        )
+                    },
                     modifier = Modifier
                         .size(100.dp)
                         .align(Alignment.CenterHorizontally)
