@@ -42,19 +42,26 @@ fun PokemonLibraryPage(viewModel: PokemonLibraryViewModel) {
                 searchContent = {
                     when (state.status) {
                         UiStatus.Loading -> {
-                            LoadingIndicator(modifier = Modifier.fillMaxSize())
+                            LoadingIndicator(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(top = 80.dp)
+                            )
                         }
                         is UiStatus.Failed -> {
                             Box(modifier = Modifier.fillMaxSize()) {
                                 Text(
                                     text = state.status.message,
-                                    modifier = Modifier.align(Alignment.Center)
+                                    modifier = Modifier
+                                        .align(Alignment.Center)
+                                        .padding(top = 80.dp)
                                 )
                             }
                         }
                         UiStatus.Success -> {
                             PokemonList(
                                 details = state.details,
+                                contentPadding = PaddingValues(top = 80.dp),
                                 modifier = Modifier
                                     .wrapContentHeight()
                                     .fillMaxWidth()
