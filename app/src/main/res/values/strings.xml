@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pokemon Library</string>
+    <string name="search">Search</string>
 </resources>

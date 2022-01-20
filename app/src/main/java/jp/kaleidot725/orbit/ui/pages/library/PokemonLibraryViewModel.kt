@@ -26,6 +26,7 @@ class PokemonLibraryViewModel(
 
     init {
         intent {
+            fetchAllPokemonUseCase() // FIXME
             search(state.searchText)
         }
     }
