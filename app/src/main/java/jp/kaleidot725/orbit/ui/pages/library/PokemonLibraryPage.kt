@@ -1,6 +1,7 @@
 package jp.kaleidot725.orbit.ui.pages.library
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -11,8 +12,9 @@ import androidx.compose.ui.unit.dp
 import jp.kaleidot725.orbit.ui.common.UiStatus
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.SearchBar
+import jp.kaleidot725.orbit.ui.molecules.TopBar
 import jp.kaleidot725.orbit.ui.organisms.PokemonList
-import jp.kaleidot725.orbit.ui.templates.Page
+import jp.kaleidot725.orbit.ui.templates.SearchTemplate
 import kotlinx.coroutines.flow.collect
 
 @Composable
@@ -23,39 +25,44 @@ fun PokemonLibraryPage(viewModel: PokemonLibraryViewModel) {
         viewModel.container.sideEffectFlow.collect { /** Do Nothing */ }
     }
 
-    Page(
-        header = {
-            SearchBar(
-                searchText = state.searchText,
-                onChangedSearchText = { viewModel.search(it) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
-            )
-        },
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = { TopBar() },
         content = {
-            when (state.status) {
-                UiStatus.Loading -> {
-                    LoadingIndicator(modifier = Modifier.fillMaxSize())
-                }
-                UiStatus.Success -> {
-                    PokemonList(
-                        details = state.details,
+            SearchTemplate(
+                searchBar = {
+                    SearchBar(
+                        searchText = state.searchText,
+                        onChangedSearchText = { viewModel.search(it) },
                         modifier = Modifier
-                            .wrapContentHeight()
                             .fillMaxWidth()
+                            .padding(8.dp)
                     )
-                }
-                is UiStatus.Failed -> {
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        Text(
-                            text = state.status.message,
-                            modifier = Modifier.align(Alignment.Center)
-                        )
+                },
+                searchContent = {
+                    when (state.status) {
+                        UiStatus.Loading -> {
+                            LoadingIndicator(modifier = Modifier.fillMaxSize())
+                        }
+                        is UiStatus.Failed -> {
+                            Box(modifier = Modifier.fillMaxSize()) {
+                                Text(
+                                    text = state.status.message,
+                                    modifier = Modifier.align(Alignment.Center)
+                                )
+                            }
+                        }
+                        UiStatus.Success -> {
+                            PokemonList(
+                                details = state.details,
+                                modifier = Modifier
+                                    .wrapContentHeight()
+                                    .fillMaxWidth()
+                            )
+                        }
                     }
                 }
-            }
-        },
-        modifier = Modifier.fillMaxSize()
+            )
+        }
     )
 }

@@ -10,26 +10,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Page(
-    header: @Composable () -> Unit,
-    content: @Composable () -> Unit,
+fun SearchTemplate(
+    searchBar: @Composable () -> Unit,
+    searchContent: @Composable () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Surface(modifier = modifier) {
         Column(modifier = Modifier.fillMaxSize()) {
-            Column {
-                header()
-                content()
-            }
+            searchBar()
+            searchContent()
         }
     }
 }
 
 @Preview
 @Composable
-fun Page_Preview() {
-    Page(
-        header = {
+private fun SearchTemplate_Preview() {
+    SearchTemplate(
+        searchBar = {
             Box(
                 modifier = Modifier
                     .background(color = Color.Red)
@@ -37,7 +35,7 @@ fun Page_Preview() {
                     .fillMaxWidth()
             )
         },
-        content = {
+        searchContent = {
             Box(
                 modifier = Modifier
                     .background(color = Color.Blue)
