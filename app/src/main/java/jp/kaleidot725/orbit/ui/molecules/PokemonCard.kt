@@ -23,7 +23,19 @@ import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
 @OptIn(ExperimentalCoilApi::class)
 @Composable
 fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
-    Card(shape = RoundedCornerShape(8.dp), modifier = modifier) {
+    val painter = rememberImagePainter(pokemonDetails.pokemon.img) {
+        crossfade(200)
+        error(R.drawable.ic_error)
+        placeholder(
+            if (isSystemInDarkTheme()) {
+                R.drawable.ic_question_white
+            } else {
+                R.drawable.ic_question_black
+            }
+        )
+    }
+
+    Card(shape = RoundedCornerShape(8.dp), elevation = 4.dp, modifier = modifier) {
         Box(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier
@@ -34,19 +46,7 @@ fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
                 Image(
                     contentDescription = null,
                     contentScale = ContentScale.Fit,
-                    painter = rememberImagePainter(pokemonDetails.pokemon.img) {
-                        crossfade(200)
-                        placeholder(
-                            if (isSystemInDarkTheme()) {
-                                R.drawable.ic_question_white
-                            } else {
-                                R.drawable.ic_question_black
-                            }
-                        )
-                        error(
-                            R.drawable.ic_error
-                        )
-                    },
+                    painter = painter,
                     modifier = Modifier
                         .size(100.dp)
                         .align(Alignment.CenterHorizontally)
