@@ -1,5 +1,6 @@
 package jp.kaleidot725.orbit.ui.pages.details
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -14,21 +15,17 @@ import kotlinx.coroutines.flow.collect
 @Composable
 fun DetailsPage(
     viewModel: DetailsViewModel,
-    id: Int,
     onBack: () -> Unit
 ) {
     val state = viewModel.container.stateFlow.collectAsState().value
 
+    Log.v("TEST", "${viewModel}")
     LaunchedEffect(viewModel) {
         viewModel.container.sideEffectFlow.collect {
             when (it) {
                 is DetailsSideEffect.Back -> onBack()
             }
         }
-    }
-
-    LaunchedEffect(id) {
-        viewModel.load(id)
     }
 
     when (state.status) {

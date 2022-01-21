@@ -9,13 +9,14 @@ import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 
 class DetailsViewModel(
+    private val id: Int,
     private val loadPokemonDetailsUseCase: LoadPokemonDetailsUseCase
 ) : ContainerHost<DetailsState, DetailsSideEffect>, ViewModel() {
     override val container = container<DetailsState, DetailsSideEffect>(
         DetailsState()
     )
 
-    fun load(id: Int) {
+    init {
         intent {
             val details = loadPokemonDetailsUseCase(id)
             if (details != null) {

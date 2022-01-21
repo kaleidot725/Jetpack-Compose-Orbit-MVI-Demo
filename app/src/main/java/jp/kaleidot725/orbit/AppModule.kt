@@ -13,7 +13,10 @@ val appModule = module {
         )
     }
 
-    viewModel {
-        DetailsViewModel(loadPokemonDetailsUseCase = get())
+    viewModel { (id: Int) ->
+        DetailsViewModel(
+            id = id,
+            loadPokemonDetailsUseCase = get()
+        )
     }
 }

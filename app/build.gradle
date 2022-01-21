@@ -67,7 +67,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.4.0-rc01")
 
     // Koin
-    implementation("io.insert-koin:koin-android:3.1.4")
+    implementation("io.insert-koin:koin-android:3.1.5")
 
     // Orbit
     implementation("org.orbit-mvi:orbit-core:4.3.0")
