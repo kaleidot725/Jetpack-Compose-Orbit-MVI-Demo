@@ -14,6 +14,6 @@ val appModule = module {
     }
 
     viewModel {
-        DetailsViewModel()
+        DetailsViewModel(loadPokemonDetailsUseCase = get())
     }
 }

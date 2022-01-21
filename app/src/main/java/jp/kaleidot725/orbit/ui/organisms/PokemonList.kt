@@ -18,7 +18,7 @@ import jp.kaleidot725.orbit.ui.atoms.PokemonCard
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PokemonList(
-    details: List<PokemonDetails>,
+    detailsList: List<PokemonDetails>,
     contentPadding: PaddingValues = PaddingValues(),
     onClickedItem: ((id: Int) -> Unit)? = null,
     modifier: Modifier = Modifier
@@ -28,14 +28,16 @@ fun PokemonList(
         contentPadding = contentPadding,
         modifier = modifier
     ) {
-        details.forEach { details ->
+        detailsList.forEach { details ->
             item {
                 PokemonCard(
                     pokemonDetails = details,
                     modifier = Modifier
                         .size(150.dp)
                         .padding(4.dp)
-                        .clickable { onClickedItem?.invoke(details.pokemon.id) }
+                        .clickable {
+                            onClickedItem?.invoke(details.pokemon.id)
+                        }
                 )
             }
         }
@@ -45,5 +47,5 @@ fun PokemonList(
 @Preview
 @Composable
 fun PokemonList_Preview() {
-    PokemonList(details = SAMPLE_POKEMON_DETAILS_LIST)
+    PokemonList(detailsList = SAMPLE_POKEMON_DETAILS_LIST)
 }

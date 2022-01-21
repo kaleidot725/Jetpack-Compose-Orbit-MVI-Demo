@@ -1,23 +1,20 @@
 package jp.kaleidot725.orbit.ui.pages.details
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import jp.kaleidot725.orbit.ui.common.UiStatus
 import jp.kaleidot725.orbit.ui.molecules.ErrorMessage
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
+import jp.kaleidot725.orbit.ui.organisms.PokemonDetails
 import kotlinx.coroutines.flow.collect
 
 @Composable
 fun DetailsPage(
     viewModel: DetailsViewModel,
+    id: Int,
     onBack: () -> Unit
 ) {
     val state = viewModel.container.stateFlow.collectAsState().value
@@ -28,6 +25,10 @@ fun DetailsPage(
                 is DetailsSideEffect.Back -> onBack()
             }
         }
+    }
+
+    LaunchedEffect(id) {
+        viewModel.load(id)
     }
 
     when (state.status) {
@@ -45,12 +46,10 @@ fun DetailsPage(
             )
         }
         UiStatus.Success -> {
-            Box(modifier = Modifier.fillMaxSize()) {
-                Text(
-                    text = "TEST",
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(top = 80.dp)
+            state.details?.let {
+                PokemonDetails(
+                    details = it,
+                    modifier = Modifier.fillMaxSize()
                 )
             }
         }

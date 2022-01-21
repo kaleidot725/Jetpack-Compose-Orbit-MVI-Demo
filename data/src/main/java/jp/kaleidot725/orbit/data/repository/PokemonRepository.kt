@@ -28,8 +28,12 @@ class PokemonRepository(
         }
     }
 
-    suspend fun load(): List<PokemonDetails> {
+    suspend fun getAll(): List<PokemonDetails> {
         return pokemonDao.getAll()
+    }
+
+    suspend fun getById(id: Int): PokemonDetails? {
+        return pokemonDao.getById(id)
     }
 
     private fun PokemonDto.toPokemonEntity(): PokemonEntity {

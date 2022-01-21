@@ -58,7 +58,7 @@ fun LibraryPage(
                 }
                 UiStatus.Success -> {
                     PokemonList(
-                        details = state.detailsList,
+                        detailsList = state.detailsList,
                         contentPadding = PaddingValues(top = 80.dp),
                         onClickedItem = { viewModel.showDetails(it) },
                         modifier = Modifier

@@ -29,12 +29,15 @@ class MainActivity : ComponentActivity() {
                             composable("library") {
                                 LibraryPage(
                                     viewModel = getViewModel(),
-                                    onShowDetail = { navController.navigate("details") }
+                                    onShowDetail = { id ->
+                                        navController.navigate("details/${id}") // FIXME
+                                    }
                                 )
                             }
-                            composable("details") {
+                            composable("details/{id}") {
                                 DetailsPage(
                                     viewModel = getViewModel(),
+                                    id = it.arguments?.getString("id")?.toInt() ?: 0, // FIXME
                                     onBack = { navController.popBackStack() }
                                 )
                             }
