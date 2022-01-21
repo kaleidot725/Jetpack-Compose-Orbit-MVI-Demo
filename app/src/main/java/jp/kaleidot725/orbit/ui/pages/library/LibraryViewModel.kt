@@ -11,27 +11,28 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
+import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 
-class PokemonLibraryViewModel(
+class LibraryViewModel(
     private val fetchAllPokemonUseCase: FetchAllPokemonUseCase,
     private val searchPokemonUseCase: SearchPokemonUseCase
-) : ContainerHost<PokemonLibraryState, PokemonLibrarySideEffect>, ViewModel() {
+) : ContainerHost<LibraryState, LibrarySideEffect>, ViewModel() {
     private var searchJob: Job? = null
 
-    override val container = container<PokemonLibraryState, PokemonLibrarySideEffect>(
-        PokemonLibraryState()
+    override val container = container<LibraryState, LibrarySideEffect>(
+        LibraryState()
     )
 
     init {
         intent {
             fetchAllPokemonUseCase() // FIXME
-            search(state.searchText)
+            searchPokemon(state.searchText)
         }
     }
 
-    fun search(searchText: String) {
+    fun searchPokemon(searchText: String) {
         intent {
             searchJob?.cancel()
             searchJob = viewModelScope.launch(Dispatchers.IO) {
@@ -39,7 +40,7 @@ class PokemonLibraryViewModel(
                     state.copy(
                         status = UiStatus.Loading,
                         searchText = searchText,
-                        details = emptyList()
+                        detailsList = emptyList()
                     )
                 }
 
@@ -50,18 +51,24 @@ class PokemonLibraryViewModel(
                     reduce {
                         state.copy(
                             status = UiStatus.Success,
-                            details = details
+                            detailsList = details
                         )
                     }
                 } else {
                     reduce {
                         state.copy(
                             status = UiStatus.Failed("Not Found"),
-                            details = details
+                            detailsList = details
                         )
                     }
                 }
             }
+        }
+    }
+
+    fun showDetails(id: Int) {
+        intent {
+            postSideEffect(LibrarySideEffect.ShowDetails(id))
         }
     }
 }
