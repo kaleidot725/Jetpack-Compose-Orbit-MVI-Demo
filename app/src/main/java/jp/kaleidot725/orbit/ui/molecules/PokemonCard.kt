@@ -37,6 +37,7 @@ fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
 
     Card(
         shape = RoundedCornerShape(16.dp),
+        elevation = 4.dp,
         modifier = modifier
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
