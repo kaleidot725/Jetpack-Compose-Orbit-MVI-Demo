@@ -1,8 +1,10 @@
 package jp.kaleidot725.orbit.ui.pages.library
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -14,7 +16,6 @@ import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.SearchBar
 import jp.kaleidot725.orbit.ui.molecules.TopBar
 import jp.kaleidot725.orbit.ui.organisms.PokemonList
-import jp.kaleidot725.orbit.ui.templates.SearchTemplate
 import kotlinx.coroutines.flow.collect
 
 @Composable
@@ -32,20 +33,20 @@ fun LibraryPage(
         }
     }
 
-    SearchTemplate(
-        titleBar = {
-            TopBar(modifier = Modifier.fillMaxWidth())
+    Scaffold(
+        topBar = {
+            Column {
+                TopBar(modifier = Modifier.fillMaxWidth())
+                SearchBar(
+                    searchText = state.searchText,
+                    onChangedSearchText = { viewModel.searchPokemon(it) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                )
+            }
         },
-        searchBar = {
-            SearchBar(
-                searchText = state.searchText,
-                onChangedSearchText = { viewModel.searchPokemon(it) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
-            )
-        },
-        searchContent = {
+        content = {
             when (state.status) {
                 UiStatus.Loading -> {
                     LoadingIndicator(

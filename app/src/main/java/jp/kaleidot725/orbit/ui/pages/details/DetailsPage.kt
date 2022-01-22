@@ -2,6 +2,7 @@ package jp.kaleidot725.orbit.ui.pages.details
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -28,26 +29,28 @@ fun DetailsPage(
         }
     }
 
-    when (state.status) {
-        UiStatus.Loading -> {
-            LoadingIndicator(
-                modifier = Modifier
-                    .fillMaxSize()
-            )
-        }
-        is UiStatus.Failed -> {
-            ErrorMessage(
-                message = state.status.message,
-                modifier = Modifier
-                    .fillMaxSize()
-            )
-        }
-        UiStatus.Success -> {
-            state.details?.let {
-                PokemonDetails(
-                    details = it,
-                    modifier = Modifier.fillMaxSize()
+    Scaffold {
+        when (state.status) {
+            UiStatus.Loading -> {
+                LoadingIndicator(
+                    modifier = Modifier
+                        .fillMaxSize()
                 )
+            }
+            is UiStatus.Failed -> {
+                ErrorMessage(
+                    message = state.status.message,
+                    modifier = Modifier
+                        .fillMaxSize()
+                )
+            }
+            UiStatus.Success -> {
+                state.details?.let {
+                    PokemonDetails(
+                        details = it,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
             }
         }
     }

@@ -3,9 +3,9 @@ package jp.kaleidot725.orbit
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.compose.NavHost
@@ -25,29 +25,25 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             OrbitTheme {
                 window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
-                
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    content = {
-                        NavHost(navController, startDestination = "library") {
-                            composable("library") {
-                                LibraryPage(
-                                    viewModel = getComposeViewModel(),
-                                    onShowDetail = { id ->
-                                        navController.navigate("details/${id}") // FIXME
-                                    }
-                                )
-                            }
-                            composable("details/{id}") {
-                                val id = parametersOf(it.arguments?.getString("id")?.toInt() ?: 0)
-                                DetailsPage(
-                                    viewModel = getComposeViewModel(parameters = { id }),
-                                    onBack = { navController.popBackStack() }
-                                )
-                            }
+                Box(modifier = Modifier.fillMaxSize()) {
+                    NavHost(navController, startDestination = "library") {
+                        composable("library") {
+                            LibraryPage(
+                                viewModel = getComposeViewModel(),
+                                onShowDetail = { id ->
+                                    navController.navigate("details/${id}") // FIXME
+                                }
+                            )
+                        }
+                        composable("details/{id}") {
+                            val id = parametersOf(it.arguments?.getString("id")?.toInt() ?: 0)
+                            DetailsPage(
+                                viewModel = getComposeViewModel(parameters = { id }),
+                                onBack = { navController.popBackStack() }
+                            )
                         }
                     }
-                )
+                }
             }
         }
     }
