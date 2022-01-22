@@ -31,7 +31,8 @@ fun PokemonList(
                     pokemonDetails = details,
                     modifier = Modifier
                         .size(150.dp)
-                        .padding(4.dp)
+                        .padding(horizontal = 8.dp)
+                        .padding(vertical = 4.dp)
                         .clickable {
                             onClickedItem?.invoke(details.pokemon.id)
                         }

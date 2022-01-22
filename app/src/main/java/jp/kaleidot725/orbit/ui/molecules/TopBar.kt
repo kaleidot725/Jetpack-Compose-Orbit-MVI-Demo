@@ -32,7 +32,8 @@ fun TopBar(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .align(Alignment.Center)
-                .padding(8.dp)
+                .padding(horizontal = 12.dp)
+                .padding(top = 8.dp)
         )
     }
 }
