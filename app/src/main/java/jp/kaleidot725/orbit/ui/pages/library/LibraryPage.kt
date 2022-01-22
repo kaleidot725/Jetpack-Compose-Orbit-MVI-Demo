@@ -49,13 +49,17 @@ fun LibraryPage(
             when (state.status) {
                 UiStatus.Loading -> {
                     LoadingIndicator(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(bottom = 80.dp)
                     )
                 }
                 is UiStatus.Failed -> {
                     ErrorMessage(
                         message = state.status.message,
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(bottom = 80.dp)
                     )
                 }
                 UiStatus.Success -> {

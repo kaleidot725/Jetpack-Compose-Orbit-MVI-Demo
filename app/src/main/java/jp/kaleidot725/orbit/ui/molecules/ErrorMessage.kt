@@ -12,7 +12,7 @@ fun ErrorMessage(message: String, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         Text(
             text = message,
-            style = MaterialTheme.typography.h6,
+            style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.error,
             modifier = Modifier.align(Alignment.Center)
         )
