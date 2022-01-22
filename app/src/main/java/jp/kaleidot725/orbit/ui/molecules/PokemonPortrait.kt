@@ -1,13 +1,13 @@
 package jp.kaleidot725.orbit.ui.molecules
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -34,15 +34,15 @@ fun PokemonPortrait(pokemonDetails: PokemonDetails, modifier: Modifier = Modifie
         )
     }
 
-    Card(shape = RoundedCornerShape(8.dp), elevation = 4.dp, modifier = modifier) {
-        Box(modifier = modifier) {
-            Image(
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                painter = painter,
-                modifier = Modifier.fillMaxSize()
-            )
-        }
+    Box(modifier = modifier) {
+        Image(
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            painter = painter,
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colors.primary)
+        )
     }
 }
 

@@ -13,6 +13,7 @@ fun ErrorMessage(message: String, modifier: Modifier = Modifier) {
         Text(
             text = message,
             style = MaterialTheme.typography.h6,
+            color = MaterialTheme.colors.error,
             modifier = Modifier.align(Alignment.Center)
         )
     }

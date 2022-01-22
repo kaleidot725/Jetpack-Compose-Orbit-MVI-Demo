@@ -31,7 +31,6 @@ inline fun <reified T : ViewModel> getComposeViewModel(
     return KoinJavaComponent.getKoin().getViewModel(qualifier, { viewModelOwner }, parameters)
 }
 
-
 val appModule = module {
     viewModel {
         LibraryViewModel(

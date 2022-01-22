@@ -2,7 +2,6 @@ package jp.kaleidot725.orbit.ui.organisms
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.GridCells
@@ -19,13 +18,11 @@ import jp.kaleidot725.orbit.ui.atoms.PokemonCard
 @Composable
 fun PokemonList(
     detailsList: List<PokemonDetails>,
-    contentPadding: PaddingValues = PaddingValues(),
     onClickedItem: ((id: Int) -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     LazyVerticalGrid(
-        cells = GridCells.Adaptive(minSize = 128.dp),
-        contentPadding = contentPadding,
+        cells = GridCells.Fixed(count = 2),
         modifier = modifier
     ) {
         detailsList.forEach { details ->

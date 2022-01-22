@@ -1,6 +1,8 @@
 package jp.kaleidot725.orbit.ui.pages.library
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -10,6 +12,7 @@ import jp.kaleidot725.orbit.ui.common.UiStatus
 import jp.kaleidot725.orbit.ui.molecules.ErrorMessage
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.SearchBar
+import jp.kaleidot725.orbit.ui.molecules.TopBar
 import jp.kaleidot725.orbit.ui.organisms.PokemonList
 import jp.kaleidot725.orbit.ui.templates.SearchTemplate
 import kotlinx.coroutines.flow.collect
@@ -30,6 +33,9 @@ fun LibraryPage(
     }
 
     SearchTemplate(
+        titleBar = {
+            TopBar(modifier = Modifier.fillMaxWidth())
+        },
         searchBar = {
             SearchBar(
                 searchText = state.searchText,
@@ -43,27 +49,20 @@ fun LibraryPage(
             when (state.status) {
                 UiStatus.Loading -> {
                     LoadingIndicator(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(top = 80.dp)
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
                 is UiStatus.Failed -> {
                     ErrorMessage(
                         message = state.status.message,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(top = 80.dp)
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
                 UiStatus.Success -> {
                     PokemonList(
                         detailsList = state.detailsList,
-                        contentPadding = PaddingValues(top = 80.dp),
                         onClickedItem = { viewModel.showDetails(it) },
-                        modifier = Modifier
-                            .wrapContentHeight()
-                            .fillMaxWidth()
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
             }
