@@ -51,7 +51,7 @@ fun PokemonPortrait(pokemonDetails: PokemonDetails, modifier: Modifier = Modifie
             text = "No.$number $name",
             style = MaterialTheme.typography.h6,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colors.onSurface,
+            color = MaterialTheme.colors.onPrimary,
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentWidth()

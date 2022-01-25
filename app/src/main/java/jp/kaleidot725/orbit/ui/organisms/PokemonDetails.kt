@@ -1,5 +1,6 @@
 package jp.kaleidot725.orbit.ui.organisms
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,14 +17,16 @@ fun PokemonDetails(
     details: PokemonDetails,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(modifier = modifier) {
-        item {
-            PokemonPortrait(
-                pokemonDetails = details,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            )
+    Box(modifier = modifier) {
+        LazyColumn {
+            item {
+                PokemonPortrait(
+                    pokemonDetails = details,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(200.dp)
+                )
+            }
         }
     }
 }
