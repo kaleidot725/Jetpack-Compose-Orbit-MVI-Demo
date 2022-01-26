@@ -25,7 +25,7 @@ fun PokemonTwoCard(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth(fraction = 0.5f)
-                    .padding(4.dp)
+                    .padding(end = 4.dp)
             )
         }
 
@@ -36,7 +36,7 @@ fun PokemonTwoCard(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .padding(4.dp)
+                    .padding(start = 4.dp)
             )
         }
     }
