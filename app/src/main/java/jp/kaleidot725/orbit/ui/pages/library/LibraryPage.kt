@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -37,6 +39,20 @@ fun LibraryPage(
         topBar = {
             Column {
                 TopBar(modifier = Modifier.fillMaxWidth())
+
+            }
+        },
+        content = {
+            val scrollState = rememberScrollState()
+            val modifier = if (state.status != UiStatus.Success) {
+                Modifier.fillMaxSize()
+            } else {
+                Modifier
+                    .fillMaxSize()
+                    .verticalScroll(scrollState)
+            }
+
+            Column(modifier = modifier) {
                 SearchBar(
                     searchText = state.searchText,
                     onChangedSearchText = { viewModel.searchPokemon(it) },
@@ -44,31 +60,29 @@ fun LibraryPage(
                         .fillMaxWidth()
                         .padding(8.dp)
                 )
-            }
-        },
-        content = {
-            when (state.status) {
-                UiStatus.Loading -> {
-                    LoadingIndicator(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(bottom = 80.dp)
-                    )
-                }
-                is UiStatus.Failed -> {
-                    ErrorMessage(
-                        message = state.status.message,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(bottom = 80.dp)
-                    )
-                }
-                UiStatus.Success -> {
-                    PokemonList(
-                        detailsList = state.detailsList,
-                        onClickedItem = { viewModel.showDetails(it) },
-                        modifier = Modifier.fillMaxSize()
-                    )
+                when (state.status) {
+                    UiStatus.Loading -> {
+                        LoadingIndicator(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(bottom = 80.dp)
+                        )
+                    }
+                    is UiStatus.Failed -> {
+                        ErrorMessage(
+                            message = state.status.message,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(bottom = 80.dp)
+                        )
+                    }
+                    UiStatus.Success -> {
+                        PokemonList(
+                            detailsList = state.detailsList,
+                            onClickedItem = { viewModel.showDetails(it) },
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
                 }
             }
         }

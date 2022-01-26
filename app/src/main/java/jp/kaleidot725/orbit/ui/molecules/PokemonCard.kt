@@ -6,6 +6,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,9 +21,13 @@ import jp.kaleidot725.orbit.R
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
 
-@OptIn(ExperimentalCoilApi::class)
+@OptIn(ExperimentalCoilApi::class, ExperimentalMaterialApi::class)
 @Composable
-fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
+fun PokemonCard(
+    pokemonDetails: PokemonDetails,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     val painter = rememberImagePainter(pokemonDetails.pokemon.img) {
         crossfade(200)
         error(R.drawable.ic_error)
@@ -36,9 +41,10 @@ fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
     }
 
     Card(
+        modifier = modifier,
         shape = RoundedCornerShape(16.dp),
         elevation = 4.dp,
-        modifier = modifier
+        onClick = onClick
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Column(
@@ -70,6 +76,7 @@ fun PokemonCard(pokemonDetails: PokemonDetails, modifier: Modifier = Modifier) {
 private fun Preview_PokemonCard() {
     PokemonCard(
         pokemonDetails = SAMPLE_POKEMON_DETAILS,
+        onClick = {},
         modifier = Modifier
             .size(150.dp)
             .background(Color.Black)
