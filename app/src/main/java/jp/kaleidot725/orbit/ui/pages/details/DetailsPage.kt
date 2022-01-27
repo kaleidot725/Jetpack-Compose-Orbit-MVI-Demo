@@ -1,9 +1,7 @@
 package jp.kaleidot725.orbit.ui.pages.details
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -15,7 +13,9 @@ import jp.kaleidot725.orbit.ui.common.UiStatus
 import jp.kaleidot725.orbit.ui.molecules.BackButton
 import jp.kaleidot725.orbit.ui.molecules.ErrorMessage
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
-import jp.kaleidot725.orbit.ui.organisms.PokemonDetails
+import jp.kaleidot725.orbit.ui.molecules.PokemonPortrait
+import jp.kaleidot725.orbit.ui.organisms.PokemonTypes
+import jp.kaleidot725.orbit.ui.organisms.PokemonWeaknesses
 import kotlinx.coroutines.flow.collect
 
 @Composable
@@ -50,11 +50,37 @@ fun DetailsPage(
             }
             UiStatus.Success -> {
                 Box(modifier = Modifier.fillMaxSize()) {
-                    state.details?.let {
-                        PokemonDetails(
-                            details = it,
-                            modifier = Modifier.fillMaxSize()
-                        )
+                    state.details?.let { details ->
+                        LazyColumn {
+                            item {
+                                PokemonPortrait(
+                                    pokemonDetails = details,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(200.dp)
+                                )
+                            }
+
+                            item {
+                                PokemonTypes(
+                                    types = details.types.map { it.value },
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .wrapContentHeight()
+                                        .padding(8.dp)
+                                )
+                            }
+
+                            item {
+                                PokemonWeaknesses(
+                                    weaknesses = details.weaknesses.map { it.value },
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .wrapContentHeight()
+                                        .padding(8.dp)
+                                )
+                            }
+                        }
                     }
 
                     BackButton(
