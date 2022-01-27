@@ -29,13 +29,11 @@ fun LibraryPage(
 
     Scaffold(
         topBar = {
-            Column {
-                TopBar(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                )
-            }
+            TopBar(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+            )
         },
         content = {
             Box(modifier = Modifier.fillMaxSize()) {

@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.primarySurface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.compose.NavHost
@@ -21,10 +22,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
             val navController = rememberNavController()
             OrbitTheme {
-                window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
+                window.statusBarColor = MaterialTheme.colors.primarySurface.toArgb()
                 Box(modifier = Modifier.fillMaxSize()) {
                     NavHost(navController, startDestination = "library") {
                         composable("library") {
