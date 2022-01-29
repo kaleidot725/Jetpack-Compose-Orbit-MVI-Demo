@@ -14,6 +14,7 @@ import jp.kaleidot725.orbit.ui.molecules.BackButton
 import jp.kaleidot725.orbit.ui.molecules.ErrorMessage
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.PokemonPortrait
+import jp.kaleidot725.orbit.ui.organisms.PokemonFigure
 import jp.kaleidot725.orbit.ui.organisms.PokemonTypes
 import jp.kaleidot725.orbit.ui.organisms.PokemonWeaknesses
 import kotlinx.coroutines.flow.collect
@@ -67,7 +68,8 @@ fun DetailsPage(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .wrapContentHeight()
-                                        .padding(8.dp)
+                                        .padding(horizontal = 16.dp)
+                                        .padding(vertical = 8.dp)
                                 )
                             }
 
@@ -77,7 +79,19 @@ fun DetailsPage(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .wrapContentHeight()
-                                        .padding(8.dp)
+                                        .padding(horizontal = 16.dp)
+                                        .padding(vertical = 8.dp)
+                                )
+                            }
+
+                            item {
+                                PokemonFigure(
+                                    pokemonEntity = details.pokemon,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .wrapContentHeight()
+                                        .padding(horizontal = 16.dp)
+                                        .padding(vertical = 8.dp)
                                 )
                             }
                         }

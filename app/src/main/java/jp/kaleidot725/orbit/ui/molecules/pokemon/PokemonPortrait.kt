@@ -55,9 +55,7 @@ fun PokemonPortrait(pokemonDetails: PokemonDetails, modifier: Modifier = Modifie
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentWidth()
-                .align(
-                    Alignment.BottomCenter
-                )
+                .align(Alignment.BottomCenter)
                 .padding(8.dp)
         )
     }

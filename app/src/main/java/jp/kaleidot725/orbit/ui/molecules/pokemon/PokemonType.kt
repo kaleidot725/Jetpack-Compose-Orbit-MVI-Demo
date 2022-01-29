@@ -18,7 +18,7 @@ fun PokemonType(type: String, modifier: Modifier = Modifier) {
     Card(elevation = 2.dp, shape = RoundedCornerShape(16.dp), modifier = modifier) {
         Text(
             text = type,
-            style = MaterialTheme.typography.h6,
+            style = MaterialTheme.typography.body1,
             modifier = Modifier
                 .padding(vertical = 2.dp)
                 .padding(horizontal = 8.dp)
