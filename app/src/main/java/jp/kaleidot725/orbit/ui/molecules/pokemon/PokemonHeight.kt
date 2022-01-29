@@ -16,7 +16,7 @@ fun PokemonHeight(height: String, modifier: Modifier = Modifier) {
     Card(elevation = 2.dp, shape = RoundedCornerShape(16.dp), modifier = modifier) {
         Text(
             text = "Height : $height",
-            style = MaterialTheme.typography.body1,
+            style = MaterialTheme.typography.h6,
             modifier = Modifier
                 .padding(vertical = 2.dp)
                 .padding(horizontal = 8.dp)

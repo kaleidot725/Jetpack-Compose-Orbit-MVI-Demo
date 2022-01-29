@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,11 +46,11 @@ fun PokemonPortrait(pokemonDetails: PokemonDetails, modifier: Modifier = Modifie
                 .padding(32.dp)
         )
 
-        val number = String.format("%03d", pokemonDetails.pokemon.num.toInt())
         val name = pokemonDetails.pokemon.name
         Text(
-            text = "No.$number $name",
-            style = MaterialTheme.typography.h6,
+            text = name,
+            style = MaterialTheme.typography.h4,
+            fontStyle = FontStyle.Italic,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colors.onPrimary,
             modifier = Modifier

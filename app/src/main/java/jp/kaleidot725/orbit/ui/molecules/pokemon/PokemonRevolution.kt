@@ -50,7 +50,7 @@ fun PokemonRevolution(details: PokemonDetails, modifier: Modifier = Modifier) {
             Box(modifier = Modifier.fillMaxSize()) {
                 Text(
                     text = details.pokemon.name,
-                    style = MaterialTheme.typography.body1,
+                    style = MaterialTheme.typography.h6,
                     modifier = Modifier
                         .align(Alignment.CenterStart)
                         .wrapContentHeight()

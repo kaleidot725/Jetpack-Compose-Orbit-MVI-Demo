@@ -69,8 +69,8 @@ fun DetailsPage(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .wrapContentHeight()
+                                        .padding(top = 16.dp)
                                         .padding(horizontal = 16.dp)
-                                        .padding(vertical = 8.dp)
                                 )
                             }
 
@@ -80,8 +80,8 @@ fun DetailsPage(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .wrapContentHeight()
+                                        .padding(top = 16.dp)
                                         .padding(horizontal = 16.dp)
-                                        .padding(vertical = 8.dp)
                                 )
                             }
 
@@ -91,8 +91,8 @@ fun DetailsPage(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .wrapContentHeight()
+                                        .padding(top = 16.dp)
                                         .padding(horizontal = 16.dp)
-                                        .padding(vertical = 8.dp)
                                 )
                             }
 
@@ -102,8 +102,8 @@ fun DetailsPage(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .wrapContentHeight()
+                                        .padding(top = 16.dp)
                                         .padding(horizontal = 16.dp)
-                                        .padding(vertical = 8.dp)
                                 )
                             }
 
