@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Pokemon Library</string>
     <string name="search">Search</string>
+    <string name="weakness_title">WEAKNESS</string>
+    <string name="type_title">TYPE</string>
+    <string name="revolution_title">REVOLUTION</string>
+    <string name="breeding_title">BREEDING</string>
 </resources>

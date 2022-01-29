@@ -9,12 +9,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import jp.kaleidot725.orbit.data.entity.PokemonDetails
 import jp.kaleidot725.orbit.ui.common.UiStatus
 import jp.kaleidot725.orbit.ui.molecules.BackButton
 import jp.kaleidot725.orbit.ui.molecules.ErrorMessage
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.PokemonPortrait
-import jp.kaleidot725.orbit.ui.organisms.PokemonFigure
+import jp.kaleidot725.orbit.ui.organisms.PokemonBreeding
 import jp.kaleidot725.orbit.ui.organisms.PokemonRevolutions
 import jp.kaleidot725.orbit.ui.organisms.PokemonTypes
 import jp.kaleidot725.orbit.ui.organisms.PokemonWeaknesses
@@ -51,64 +52,15 @@ fun DetailsPage(
                 )
             }
             UiStatus.Success -> {
+                val details = state.details ?: return@Scaffold
+                val revolutions = state.revolutions
+
                 Box(modifier = Modifier.fillMaxSize()) {
-                    state.details?.let { details ->
-                        LazyColumn {
-                            item {
-                                PokemonPortrait(
-                                    pokemonDetails = details,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .wrapContentHeight()
-                                )
-                            }
-
-                            item {
-                                PokemonTypes(
-                                    types = details.types.map { it.value },
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .wrapContentHeight()
-                                        .padding(top = 16.dp)
-                                        .padding(horizontal = 16.dp)
-                                )
-                            }
-
-                            item {
-                                PokemonWeaknesses(
-                                    weaknesses = details.weaknesses.map { it.value },
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .wrapContentHeight()
-                                        .padding(top = 16.dp)
-                                        .padding(horizontal = 16.dp)
-                                )
-                            }
-
-                            item {
-                                PokemonFigure(
-                                    pokemonEntity = details.pokemon,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .wrapContentHeight()
-                                        .padding(top = 16.dp)
-                                        .padding(horizontal = 16.dp)
-                                )
-                            }
-
-                            item {
-                                PokemonRevolutions(
-                                    details = state.revolutions,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .wrapContentHeight()
-                                        .padding(top = 16.dp)
-                                        .padding(horizontal = 16.dp)
-                                )
-                            }
-
-                        }
-                    }
+                    PokemonDataList(
+                        details = details,
+                        revolutions = revolutions,
+                        modifier = Modifier.fillMaxSize()
+                    )
 
                     BackButton(
                         onClick = { onBack.invoke() },
@@ -119,6 +71,68 @@ fun DetailsPage(
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun PokemonDataList(
+    details: PokemonDetails,
+    revolutions: List<PokemonDetails>,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(modifier) {
+        item {
+            PokemonPortrait(
+                pokemonDetails = details,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+            )
+        }
+
+        item {
+            PokemonTypes(
+                types = details.types.map { it.value },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(top = 16.dp)
+                    .padding(horizontal = 16.dp)
+            )
+        }
+
+        item {
+            PokemonWeaknesses(
+                weaknesses = details.weaknesses.map { it.value },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(top = 16.dp)
+                    .padding(horizontal = 16.dp)
+            )
+        }
+
+        item {
+            PokemonBreeding(
+                pokemonEntity = details.pokemon,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(top = 16.dp)
+                    .padding(horizontal = 16.dp)
+            )
+        }
+
+        item {
+            PokemonRevolutions(
+                details = revolutions,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(top = 16.dp)
+                    .padding(horizontal = 16.dp)
+            )
         }
     }
 }
