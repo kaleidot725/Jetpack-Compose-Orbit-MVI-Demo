@@ -42,7 +42,8 @@ val appModule = module {
     viewModel { (id: Int) ->
         DetailsViewModel(
             id = id,
-            loadPokemonDetailsUseCase = get()
+            loadPokemonDetailsUseCase = get(),
+            loadPokemonRevolutionUseCase = get()
         )
     }
 }

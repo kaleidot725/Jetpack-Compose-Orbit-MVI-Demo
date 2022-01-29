@@ -36,6 +36,10 @@ class PokemonRepository(
         return pokemonDao.getById(id)
     }
 
+    suspend fun getByNumbers(numbers: List<String>): List<PokemonDetails> {
+        return pokemonDao.getByNumbers(numbers)
+    }
+
     private fun PokemonDto.toPokemonEntity(): PokemonEntity {
         return PokemonEntity(
             id = this.id,

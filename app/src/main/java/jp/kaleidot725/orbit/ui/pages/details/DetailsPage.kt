@@ -15,6 +15,7 @@ import jp.kaleidot725.orbit.ui.molecules.ErrorMessage
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.PokemonPortrait
 import jp.kaleidot725.orbit.ui.organisms.PokemonFigure
+import jp.kaleidot725.orbit.ui.organisms.PokemonRevolutions
 import jp.kaleidot725.orbit.ui.organisms.PokemonTypes
 import jp.kaleidot725.orbit.ui.organisms.PokemonWeaknesses
 import kotlinx.coroutines.flow.collect
@@ -94,6 +95,18 @@ fun DetailsPage(
                                         .padding(vertical = 8.dp)
                                 )
                             }
+
+                            item {
+                                PokemonRevolutions(
+                                    details = state.revolutions,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .wrapContentHeight()
+                                        .padding(horizontal = 16.dp)
+                                        .padding(vertical = 8.dp)
+                                )
+                            }
+
                         }
                     }
 

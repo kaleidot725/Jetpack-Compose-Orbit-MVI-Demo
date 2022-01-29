@@ -20,7 +20,10 @@ interface PokemonDao {
 
     @Query("SELECT * FROM pokemons WHERE id=:id")
     suspend fun getById(id: Int): PokemonDetails?
-   
+
+    @Query("SELECT * FROM pokemons WHERE num IN (:numbers)")
+    suspend fun getByNumbers(numbers: List<String>): List<PokemonDetails>
+
     @Query("SELECT * FROM pokemons")
     suspend fun getAll(): List<PokemonDetails>
 }
