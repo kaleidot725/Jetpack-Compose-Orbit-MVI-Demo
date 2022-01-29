@@ -7,11 +7,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
@@ -35,29 +35,26 @@ fun PokemonPortrait(pokemonDetails: PokemonDetails, modifier: Modifier = Modifie
         )
     }
 
-    Box(modifier = modifier) {
+    Column(modifier = modifier.background(MaterialTheme.colors.primary)) {
         Image(
             contentDescription = null,
             contentScale = ContentScale.Fit,
             painter = painter,
             modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colors.primary)
-                .padding(32.dp)
+                .height(180.dp)
+                .fillMaxWidth()
         )
 
-        val name = pokemonDetails.pokemon.name
         Text(
-            text = name,
+            text = pokemonDetails.pokemon.name,
             style = MaterialTheme.typography.h4,
             fontStyle = FontStyle.Italic,
             fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
             color = MaterialTheme.colors.onPrimary,
             modifier = Modifier
                 .fillMaxWidth()
-                .wrapContentWidth()
-                .align(Alignment.BottomCenter)
-                .padding(8.dp)
+                .padding(vertical = 4.dp)
         )
     }
 }
@@ -69,7 +66,7 @@ private fun Preview_PokemonPortrait() {
         pokemonDetails = SAMPLE_POKEMON_DETAILS,
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .wrapContentHeight()
             .width(200.dp)
     )
 }

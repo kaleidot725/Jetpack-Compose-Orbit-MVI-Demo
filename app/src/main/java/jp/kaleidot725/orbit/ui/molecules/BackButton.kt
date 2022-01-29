@@ -1,7 +1,6 @@
 package jp.kaleidot725.orbit.ui.molecules
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -18,12 +17,12 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BackButton(
-    onClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
 ) {
     OutlinedButton(
         onClick = { onClick?.invoke() },
-        modifier = modifier.background(Color.Transparent),
+        modifier = modifier,
         shape = CircleShape,
         border = BorderStroke(1.dp, Color.White),
         contentPadding = PaddingValues(0.dp),

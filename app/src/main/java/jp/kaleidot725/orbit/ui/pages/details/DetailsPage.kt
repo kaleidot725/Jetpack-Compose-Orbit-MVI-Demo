@@ -59,7 +59,7 @@ fun DetailsPage(
                                     pokemonDetails = details,
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .height(200.dp)
+                                        .wrapContentHeight()
                                 )
                             }
 

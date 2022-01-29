@@ -13,7 +13,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun PokemonHeight(height: String, modifier: Modifier = Modifier) {
-    Card(elevation = 2.dp, shape = RoundedCornerShape(16.dp), modifier = modifier) {
+    Card(
+        elevation = 2.dp,
+        shape = RoundedCornerShape(16.dp),
+        modifier = modifier
+    ) {
         Text(
             text = "Height : $height",
             style = MaterialTheme.typography.h6,
