@@ -93,7 +93,7 @@ private fun PokemonDataList(
 
         item {
             PokemonTypes(
-                types = details.types.map { it.value },
+                details = details,
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
@@ -104,7 +104,7 @@ private fun PokemonDataList(
 
         item {
             PokemonWeaknesses(
-                weaknesses = details.weaknesses.map { it.value },
+                details = details,
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()

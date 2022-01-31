@@ -11,10 +11,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import jp.kaleidot725.orbit.R
+import jp.kaleidot725.orbit.data.entity.PokemonDetails
+import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
 import jp.kaleidot725.orbit.ui.molecules.PokemonWeakness
 
 @Composable
-fun PokemonWeaknesses(weaknesses: List<String>, modifier: Modifier = Modifier) {
+fun PokemonWeaknesses(details: PokemonDetails, modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Text(
             text = stringResource(R.string.weakness_title),
@@ -26,7 +28,7 @@ fun PokemonWeaknesses(weaknesses: List<String>, modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Row {
-            weaknesses.forEach { weakness ->
+            details.weaknesses.forEach { weakness ->
                 PokemonWeakness(weakness = weakness, modifier = Modifier.padding(end = 8.dp))
             }
         }
@@ -37,7 +39,7 @@ fun PokemonWeaknesses(weaknesses: List<String>, modifier: Modifier = Modifier) {
 @Composable
 private fun PokemonWeaknesses_Preview() {
     PokemonWeaknesses(
-        weaknesses = listOf("ABCD", "BCDE", "CDEF"),
+        details = SAMPLE_POKEMON_DETAILS,
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
