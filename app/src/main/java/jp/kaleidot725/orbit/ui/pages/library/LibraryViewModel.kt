@@ -27,7 +27,7 @@ class LibraryViewModel(
 
     init {
         intent {
-            fetchAllPokemonUseCase() // FIXME
+            fetchAllPokemonUseCase()
             searchPokemon(state.searchText)
         }
     }

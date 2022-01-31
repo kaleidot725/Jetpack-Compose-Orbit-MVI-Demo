@@ -15,16 +15,13 @@ class PokemonRepository(
     private val weaknessDao: WeaknessDao
 ) {
     suspend fun fetch() {
-        // FIXME 内部DB構築済みであるか判定する処理を追加する
-        if (pokemonDao.getAll().isEmpty()) {
-            pokemonDataSource.fetchData().forEach { pokemonDto ->
-                pokemonDao.insert(pokemonDto.toPokemonEntity())
-                multiplierDao.insertAll(pokemonDto.toMultiplierEntities())
-                nextEvolutionDao.insertAll(pokemonDto.toNextEvolutionEntities())
-                prevEvolutionDao.insertAll(pokemonDto.toPrevEvolutionEntities())
-                typeDao.insertAll(pokemonDto.toTypeEntities())
-                weaknessDao.insertAll(pokemonDto.toWeaknessEntities())
-            }
+        pokemonDataSource.fetchData().forEach { pokemonDto ->
+            pokemonDao.insert(pokemonDto.toPokemonEntity())
+            multiplierDao.insertAll(pokemonDto.toMultiplierEntities())
+            nextEvolutionDao.insertAll(pokemonDto.toNextEvolutionEntities())
+            prevEvolutionDao.insertAll(pokemonDto.toPrevEvolutionEntities())
+            typeDao.insertAll(pokemonDto.toTypeEntities())
+            weaknessDao.insertAll(pokemonDto.toWeaknessEntities())
         }
     }
 

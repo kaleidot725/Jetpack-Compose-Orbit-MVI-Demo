@@ -3,6 +3,7 @@ package jp.kaleidot725.orbit.data
 import androidx.room.Room
 import jp.kaleidot725.orbit.data.database.AppDatabase
 import jp.kaleidot725.orbit.data.datasource.PokemonDataSource
+import jp.kaleidot725.orbit.data.repository.ConfigRepository
 import jp.kaleidot725.orbit.data.repository.PokemonRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -55,6 +56,12 @@ val dataModule = module {
             prevEvolutionDao = get(),
             typeDao = get(),
             weaknessDao = get()
+        )
+    }
+
+    factory {
+        ConfigRepository(
+            context = androidContext()
         )
     }
 }

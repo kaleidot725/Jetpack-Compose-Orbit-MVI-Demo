@@ -8,7 +8,7 @@ import org.koin.dsl.module
 
 val domainModule = module {
     factory {
-        FetchAllPokemonUseCase(pokemonRepository = get())
+        FetchAllPokemonUseCase(pokemonRepository = get(), configRepository = get())
     }
     factory {
         LoadPokemonDetailsUseCase(pokemonRepository = get())
