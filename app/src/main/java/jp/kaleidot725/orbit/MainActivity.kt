@@ -14,9 +14,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import jp.kaleidot725.orbit.ui.pages.details.DetailsPage
 import jp.kaleidot725.orbit.ui.pages.library.LibraryPage
+import jp.kaleidot725.orbit.ui.screen.Screen
 import jp.kaleidot725.orbit.ui.theme.OrbitTheme
 import org.koin.core.parameter.parametersOf
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,19 +26,20 @@ class MainActivity : ComponentActivity() {
             OrbitTheme {
                 window.statusBarColor = MaterialTheme.colors.primarySurface.toArgb()
                 Box(modifier = Modifier.fillMaxSize()) {
-                    NavHost(navController, startDestination = "library") {
-                        composable("library") {
+                    NavHost(navController, startDestination = Screen.Library.route) {
+                        composable(Screen.Library.route) {
                             LibraryPage(
                                 viewModel = getComposeViewModel(),
                                 onShowDetail = { id ->
-                                    navController.navigate("details/${id}") // FIXME
+                                    navController.navigate(Screen.Details.createRoute(id))
                                 }
                             )
                         }
-                        composable("details/{id}") {
-                            val id = parametersOf(it.arguments?.getString("id")?.toInt() ?: 0)
+                        composable(Screen.Details.route) {
                             DetailsPage(
-                                viewModel = getComposeViewModel(parameters = { id }),
+                                viewModel = getComposeViewModel(
+                                    parameters = { parametersOf(Screen.Details.getArgumentId(it)) }
+                                ),
                                 onBack = { navController.popBackStack() }
                             )
                         }
