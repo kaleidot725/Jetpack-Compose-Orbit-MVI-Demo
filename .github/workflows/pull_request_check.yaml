@@ -15,13 +15,6 @@ jobs:
       - name: run ktlintCheck
         run: |
           ./gradlew --continue ktlintCheck
-        continue-on-error: true
       - name: run test
         run: |
           ./gradlew test
-      - name: run danger
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gem install danger danger-checkstyle_format danger-android_lint danger-junit
-          danger
