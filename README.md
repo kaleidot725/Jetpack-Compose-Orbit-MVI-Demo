@@ -1,3 +1,9 @@
 # Pokemon Library with Jetpack Compose
 
-<img src="docs/demo.gif">
+WIP
+
+<img src="docs/demo.gif" width=350>
+
+## App architecture
+
+WIP s   s
