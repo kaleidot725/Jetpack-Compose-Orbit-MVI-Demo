@@ -8,7 +8,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
@@ -37,7 +36,7 @@ fun PokemonWeakness(weakness: WeaknessEntity, modifier: Modifier = Modifier) {
     }
 }
 
-private fun PokemonType.toColor(): Color {
+private fun PokemonType.toColor(): androidx.compose.ui.graphics.Color {
     return when (this) {
         PokemonType.GRASS -> Colors.Grass
         PokemonType.POISON -> Colors.Poison

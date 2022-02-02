@@ -10,8 +10,23 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.6.0' apply false
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.0' apply false
     id "org.jetbrains.kotlin.kapt" version "1.6.0" apply false
+    id "org.jlleitschuh.gradle.ktlint" version "10.2.1"
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+ktlint {
+    reporters {
+        reporter "checkstyle"
+    }
 }

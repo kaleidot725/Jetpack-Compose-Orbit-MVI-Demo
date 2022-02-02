@@ -1,9 +1,20 @@
 package jp.kaleidot725.orbit.data.repository
 
-import jp.kaleidot725.orbit.data.dao.*
+import jp.kaleidot725.orbit.data.dao.MultiplierDao
+import jp.kaleidot725.orbit.data.dao.NextEvolutionDao
+import jp.kaleidot725.orbit.data.dao.PokemonDao
+import jp.kaleidot725.orbit.data.dao.PrevEvolutionDao
+import jp.kaleidot725.orbit.data.dao.TypeDao
+import jp.kaleidot725.orbit.data.dao.WeaknessDao
 import jp.kaleidot725.orbit.data.datasource.PokemonDataSource
 import jp.kaleidot725.orbit.data.dto.PokemonDto
-import jp.kaleidot725.orbit.data.entity.*
+import jp.kaleidot725.orbit.data.entity.MultiplierEntity
+import jp.kaleidot725.orbit.data.entity.NextEvolutionEntity
+import jp.kaleidot725.orbit.data.entity.PokemonDetails
+import jp.kaleidot725.orbit.data.entity.PokemonEntity
+import jp.kaleidot725.orbit.data.entity.PrevEvolutionEntity
+import jp.kaleidot725.orbit.data.entity.TypeEntity
+import jp.kaleidot725.orbit.data.entity.WeaknessEntity
 
 class PokemonRepository(
     private val pokemonDataSource: PokemonDataSource,
