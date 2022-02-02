@@ -8,7 +8,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
@@ -16,6 +15,7 @@ import jp.kaleidot725.orbit.data.entity.WeaknessEntity
 import jp.kaleidot725.orbit.data.entity.WeaknessEntity.Companion.toPokemonType
 import jp.kaleidot725.orbit.data.enum.PokemonType
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
+import jp.kaleidot725.orbit.ui.theme.Colors
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -38,22 +38,22 @@ fun PokemonWeakness(weakness: WeaknessEntity, modifier: Modifier = Modifier) {
 
 private fun PokemonType.toColor(): androidx.compose.ui.graphics.Color {
     return when (this) {
-        PokemonType.GRASS -> Color.Grass
-        PokemonType.POISON -> Color.Poison
-        PokemonType.FIRE -> Color.Fire
-        PokemonType.FLYING -> Color.Flying
-        PokemonType.WATER -> Color.Water
-        PokemonType.BUG -> Color.Bug
-        PokemonType.NORMAL -> Color.Normal
-        PokemonType.ELECTRIC -> Color.Electric
-        PokemonType.GROUND -> Color.Ground
-        PokemonType.FIGHTING -> Color.Fighting
-        PokemonType.PSYCHIC -> Color.Psychic
-        PokemonType.ROCK -> Color.Rock
-        PokemonType.ICE -> Color.Ice
-        PokemonType.GHOST -> Color.Ghost
-        PokemonType.DRAGON -> Color.Dragon
-        PokemonType.UNKNOWN -> Color.Unknown
+        PokemonType.GRASS -> Colors.Grass
+        PokemonType.POISON -> Colors.Poison
+        PokemonType.FIRE -> Colors.Fire
+        PokemonType.FLYING -> Colors.Flying
+        PokemonType.WATER -> Colors.Water
+        PokemonType.BUG -> Colors.Bug
+        PokemonType.NORMAL -> Colors.Normal
+        PokemonType.ELECTRIC -> Colors.Electric
+        PokemonType.GROUND -> Colors.Ground
+        PokemonType.FIGHTING -> Colors.Fighting
+        PokemonType.PSYCHIC -> Colors.Psychic
+        PokemonType.ROCK -> Colors.Rock
+        PokemonType.ICE -> Colors.Ice
+        PokemonType.GHOST -> Colors.Ghost
+        PokemonType.DRAGON -> Colors.Dragon
+        PokemonType.UNKNOWN -> Colors.Unknown
     }
 }
 

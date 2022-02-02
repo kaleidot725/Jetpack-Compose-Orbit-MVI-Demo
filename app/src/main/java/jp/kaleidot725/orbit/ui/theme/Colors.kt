@@ -2,7 +2,7 @@ package jp.kaleidot725.orbit.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-object Color {
+object Colors {
     val Normal = Color(0xFFA8A77A)
     val Fire = Color(0xFFEE8130)
     val Water = Color(0xFF6390F0)
