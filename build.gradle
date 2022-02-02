@@ -13,12 +13,20 @@ plugins {
     id "org.jlleitschuh.gradle.ktlint" version "10.2.1"
 }
 
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    repositories {
+        mavenCentral()
+    }
+}
+
 ktlint {
     reporters {
         reporter "checkstyle"
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }

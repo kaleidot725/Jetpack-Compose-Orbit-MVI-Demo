@@ -36,7 +36,6 @@ fun SearchBar(
             label = { Text(stringResource(R.string.search)) }
         )
     }
-
 }
 
 @Preview

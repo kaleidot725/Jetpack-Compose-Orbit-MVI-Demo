@@ -1,6 +1,11 @@
 package jp.kaleidot725.orbit.ui.pages.details
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -20,6 +25,7 @@ import jp.kaleidot725.orbit.ui.organisms.PokemonRevolutions
 import jp.kaleidot725.orbit.ui.organisms.PokemonTypes
 import jp.kaleidot725.orbit.ui.organisms.PokemonWeaknesses
 import kotlinx.coroutines.flow.collect
+import jp.kaleidot725.orbit.ui.pages.details.PokemonDataList as PokemonDataList1
 
 @Composable
 fun DetailsPage(
@@ -56,7 +62,7 @@ fun DetailsPage(
                 val revolutions = state.revolutions
 
                 Box(modifier = Modifier.fillMaxSize()) {
-                    PokemonDataList(
+                    PokemonDataList1(
                         details = details,
                         revolutions = revolutions,
                         modifier = Modifier.fillMaxSize()
