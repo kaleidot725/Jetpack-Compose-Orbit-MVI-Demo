@@ -20,5 +20,8 @@ data class PokemonDetails(
     val types: List<TypeEntity>,
 
     @Relation(parentColumn = "id", entityColumn = "pokemonId", entity = WeaknessEntity::class)
-    val weaknesses: List<WeaknessEntity>
+    val weaknesses: List<WeaknessEntity>,
+
+    @Relation(parentColumn = "id", entityColumn = "pokemonId", entity = ImageEntity::class)
+    val image: ImageEntity
 )

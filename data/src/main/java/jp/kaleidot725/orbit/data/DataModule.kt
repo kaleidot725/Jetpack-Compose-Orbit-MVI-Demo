@@ -5,10 +5,16 @@ import jp.kaleidot725.orbit.data.database.AppDatabase
 import jp.kaleidot725.orbit.data.datasource.PokemonDataSource
 import jp.kaleidot725.orbit.data.repository.ConfigRepository
 import jp.kaleidot725.orbit.data.repository.PokemonRepository
+import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val dataModule = module {
+    factory {
+        OkHttpClient()
+    }
+
     factory {
         Room.databaseBuilder(androidContext(), AppDatabase::class.java, "pokemon-database").build()
     }
@@ -48,6 +54,11 @@ val dataModule = module {
     }
 
     factory {
+        val db: AppDatabase = get()
+        db.getImageDao()
+    }
+
+    factory {
         PokemonRepository(
             pokemonDataSource = get(),
             pokemonDao = get(),
@@ -55,7 +66,10 @@ val dataModule = module {
             nextEvolutionDao = get(),
             prevEvolutionDao = get(),
             typeDao = get(),
-            weaknessDao = get()
+            weaknessDao = get(),
+            imageDao = get(),
+            imageClient = get(),
+            imageDirectory = androidApplication().filesDir.toString()
         )
     }
 

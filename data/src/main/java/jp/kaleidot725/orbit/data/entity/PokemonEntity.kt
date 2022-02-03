@@ -14,7 +14,6 @@ data class PokemonEntity(
     val candyCount: Int,
     val egg: String,
     val height: String,
-    val img: String,
     val name: String,
     val num: String,
     val spawnChance: Double,

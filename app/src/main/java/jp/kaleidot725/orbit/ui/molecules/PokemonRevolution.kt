@@ -23,10 +23,11 @@ import coil.compose.rememberImagePainter
 import jp.kaleidot725.orbit.R
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
+import java.io.File
 
 @Composable
 fun PokemonRevolution(details: PokemonDetails, modifier: Modifier = Modifier) {
-    val painter = rememberImagePainter(details.pokemon.img) {
+    val painter = rememberImagePainter(File(details.image.localUrl)) {
         crossfade(200)
         error(R.drawable.ic_error)
         placeholder(
