@@ -7,6 +7,7 @@ import jp.kaleidot725.orbit.data.dao.PokemonDao
 import jp.kaleidot725.orbit.data.dao.PrevEvolutionDao
 import jp.kaleidot725.orbit.data.dao.TypeDao
 import jp.kaleidot725.orbit.data.dao.WeaknessDao
+import jp.kaleidot725.orbit.data.database.AppDatabase
 import jp.kaleidot725.orbit.data.datasource.PokemonDataSource
 import jp.kaleidot725.orbit.data.dto.PokemonDto
 import jp.kaleidot725.orbit.data.entity.ImageEntity
@@ -25,7 +26,6 @@ import java.io.File
 import java.io.FileOutputStream
 
 class PokemonRepository(
-
     private val pokemonDataSource: PokemonDataSource,
     private val pokemonDao: PokemonDao,
     private val multiplierDao: MultiplierDao,
@@ -35,21 +35,31 @@ class PokemonRepository(
     private val weaknessDao: WeaknessDao,
     private val imageDao: ImageDao,
     private val imageDirectory: String,
-    private val imageClient: OkHttpClient
+    private val imageClient: OkHttpClient,
+    private val appDatabase: AppDatabase
 ) {
-    suspend fun fetch() {
-        pokemonDataSource.fetchData().forEach { pokemonDto ->
-            pokemonDao.insert(pokemonDto.toPokemonEntity())
-            multiplierDao.insertAll(pokemonDto.toMultiplierEntities())
-            nextEvolutionDao.insertAll(pokemonDto.toNextEvolutionEntities())
-            prevEvolutionDao.insertAll(pokemonDto.toPrevEvolutionEntities())
-            typeDao.insertAll(pokemonDto.toTypeEntities())
-            weaknessDao.insertAll(pokemonDto.toWeaknessEntities())
-            withContext(Dispatchers.IO) {
-                val localUrl = downloadImage(pokemonDto.id, pokemonDto.img)
-                if (localUrl != null) imageDao.insert(pokemonDto.toImageEntity(localUrl))
+    suspend fun fetch(): Boolean {
+        try {
+            pokemonDataSource.fetchData().forEach { pokemonDto ->
+                pokemonDao.insert(pokemonDto.toPokemonEntity())
+                multiplierDao.insertAll(pokemonDto.toMultiplierEntities())
+                nextEvolutionDao.insertAll(pokemonDto.toNextEvolutionEntities())
+                prevEvolutionDao.insertAll(pokemonDto.toPrevEvolutionEntities())
+                typeDao.insertAll(pokemonDto.toTypeEntities())
+                weaknessDao.insertAll(pokemonDto.toWeaknessEntities())
+                withContext(Dispatchers.IO) {
+                    val localUrl = downloadImage(pokemonDto.id, pokemonDto.img)
+                    if (localUrl != null) imageDao.insert(pokemonDto.toImageEntity(localUrl))
+                }
             }
+            return false
+        } catch (e: Exception) {
+            return true
         }
+    }
+
+    fun clear() {
+        appDatabase.clearAllTables()
     }
 
     suspend fun getAll(): List<PokemonDetails> {

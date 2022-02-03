@@ -69,7 +69,8 @@ val dataModule = module {
             weaknessDao = get(),
             imageDao = get(),
             imageClient = get(),
-            imageDirectory = androidApplication().filesDir.toString()
+            imageDirectory = androidApplication().filesDir.toString(),
+            appDatabase = get()
         )
     }
 

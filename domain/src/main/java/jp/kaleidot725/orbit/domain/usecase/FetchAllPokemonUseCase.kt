@@ -9,8 +9,8 @@ class FetchAllPokemonUseCase(
 ) {
     suspend operator fun invoke() {
         if (!configRepository.createdDatabase) {
-            pokemonRepository.fetch()
-            configRepository.createdDatabase = true
+            pokemonRepository.clear()
+            configRepository.createdDatabase = pokemonRepository.fetch()
         }
     }
 }
