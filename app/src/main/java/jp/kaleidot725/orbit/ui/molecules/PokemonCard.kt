@@ -45,7 +45,7 @@ fun PokemonCard(
             }
         )
     }
-    
+
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(16.dp),

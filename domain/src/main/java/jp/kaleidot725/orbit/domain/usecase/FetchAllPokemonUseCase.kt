@@ -7,10 +7,12 @@ class FetchAllPokemonUseCase(
     private val pokemonRepository: PokemonRepository,
     private val configRepository: ConfigRepository
 ) {
-    suspend operator fun invoke() {
-        if (!configRepository.createdDatabase) {
+    suspend operator fun invoke(): Boolean {
+        return if (!configRepository.createdDatabase) {
             pokemonRepository.clear()
-            configRepository.createdDatabase = pokemonRepository.fetch()
+            pokemonRepository.fetch().apply { configRepository.createdDatabase = this }
+        } else {
+            true
         }
     }
 }

@@ -9,12 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun ErrorMessage(message: String, modifier: Modifier = Modifier) {
+fun LoadingMessage(message: String, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         Text(
             text = message,
             style = MaterialTheme.typography.h5,
-            color = MaterialTheme.colors.error,
+            color = MaterialTheme.colors.onSurface,
             modifier = Modifier.align(Alignment.Center)
         )
     }
@@ -22,6 +22,6 @@ fun ErrorMessage(message: String, modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun ErrorMessage_Preview() {
-    ErrorMessage("ERROR")
+private fun LoadingMessage_Preview() {
+    LoadingMessage("Download Pokemon Data...")
 }

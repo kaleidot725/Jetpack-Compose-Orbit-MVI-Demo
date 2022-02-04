@@ -5,6 +5,7 @@ import androidx.compose.ui.platform.LocalSavedStateRegistryOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import jp.kaleidot725.orbit.ui.pages.details.DetailsViewModel
+import jp.kaleidot725.orbit.ui.pages.init.InitViewModel
 import jp.kaleidot725.orbit.ui.pages.library.LibraryViewModel
 import org.koin.androidx.viewmodel.ViewModelOwner
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -33,8 +34,13 @@ inline fun <reified T : ViewModel> getComposeViewModel(
 
 val appModule = module {
     viewModel {
+        InitViewModel(
+            fetchAllPokemonUseCase = get()
+        )
+    }
+
+    viewModel {
         LibraryViewModel(
-            fetchAllPokemonUseCase = get(),
             searchPokemonUseCase = get()
         )
     }
