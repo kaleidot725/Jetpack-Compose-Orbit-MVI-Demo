@@ -14,7 +14,6 @@ import jp.kaleidot725.orbit.ui.organisms.DownloadRetryMessage
 import jp.kaleidot725.orbit.ui.organisms.DownloadingMessage
 import kotlinx.coroutines.flow.collect
 
-
 @Composable
 fun InitPage(
     viewModel: InitViewModel,
