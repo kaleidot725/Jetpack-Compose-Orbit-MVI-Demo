@@ -52,9 +52,9 @@ class PokemonRepository(
                     if (localUrl != null) imageDao.insert(pokemonDto.toImageEntity(localUrl))
                 }
             }
-            return false
-        } catch (e: Exception) {
             return true
+        } catch (e: Exception) {
+            return false
         }
     }
 

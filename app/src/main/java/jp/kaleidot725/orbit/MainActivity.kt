@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import jp.kaleidot725.orbit.ui.pages.details.DetailsPage
+import jp.kaleidot725.orbit.ui.pages.init.InitPage
 import jp.kaleidot725.orbit.ui.pages.library.LibraryPage
 import jp.kaleidot725.orbit.ui.screen.Screen
 import jp.kaleidot725.orbit.ui.theme.OrbitTheme
@@ -26,7 +27,13 @@ class MainActivity : ComponentActivity() {
             OrbitTheme {
                 window.statusBarColor = MaterialTheme.colors.primarySurface.toArgb()
                 Box(modifier = Modifier.fillMaxSize()) {
-                    NavHost(navController, startDestination = Screen.Library.route) {
+                    NavHost(navController, startDestination = Screen.Init.route) {
+                        composable(Screen.Init.route) {
+                            InitPage(
+                                viewModel = getComposeViewModel(),
+                                onCompleted = { navController.navigate(Screen.Library.route) }
+                            )
+                        }
                         composable(Screen.Library.route) {
                             LibraryPage(
                                 viewModel = getComposeViewModel(),
