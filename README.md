@@ -6,9 +6,7 @@ This repository contains a Pokemon Library application that is implemented MVI a
 
 # 📦Module
 
-This application has multi modules. 
-
-For details of each module, please refer to the figure below.
+This application has multi modules. For details of each module, please refer to the figure below.
 
 | Name | Details |
 | --- | ---|
@@ -35,9 +33,15 @@ This application uses the libraries below.
 
 This application is implemented by MVI based on MVVM.
 
+<img src="docs/architecture.png">
 
+## ✨Features
 
-## Features
+This application has next features.
+
+- Display pokemon image and type, weakeness, breeding, revolutions.
+- Search pokemon.
+- Download pokemon character images.
 
 
 
