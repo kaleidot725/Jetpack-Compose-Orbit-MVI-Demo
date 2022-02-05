@@ -1,18 +1,32 @@
-# ✨Pokemon Library with Jetpack Compose + Orbit MVI✨
+# Pokemon Library with Jetpack Compose + Orbit MVI
 
 This repository contains a Pokemon Library application that is implemented MVI architecture using Koin, Jetpack Compose, Navigation Compose, Orbit MVI.
 
 <img src="docs/title.png">
 
-# 📦Module
+## ✨Features
+
+This application has next features.
+
+- Display pokemon image and type, weakeness, breeding, revolutions.
+- Search pokemon.
+- Download pokemon character images.
+
+## 🏢Architecture
+
+This application is implemented by MVI architecture based on MVVM + Repository Pattern.
+
+<img src="docs/architecture.png">
+
+## 📦Module
 
 This application has multi modules. For details of each module, please refer to the figure below.
 
-| Name | Details |
-| --- | ---|
-| app | Implement application user interface and navigation management logic. |
-| domain | Implement business logic for Pokemon Library |
-| data | Define persistence data structure and implement persistence logic. |
+| Name   | Details                                                      |
+| ------ | ------------------------------------------------------------ |
+| app    | Implement application user interface and navigation management logic. |
+| domain | Implement business logic for Pokemon Library                 |
+| data   | Define persistence data structure and implement persistence logic. |
 
 ## 📚Library
 
@@ -29,22 +43,6 @@ This application uses the libraries below.
 | Kotlin-Serialiazation | https://github.com/Kotlin/kotlinx.serialization              |
 | PokemonGO-Pokedex     | https://github.com/Biuni/PokemonGO-Pokedex                   |
 
-## 🏢Architecture
-
-This application is implemented by MVI based on MVVM.
-
-<img src="docs/architecture.png">
-
-## ✨Features
-
-This application has next features.
-
-- Display pokemon image and type, weakeness, breeding, revolutions.
-- Search pokemon.
-- Download pokemon character images.
-
-
-
 ## ⭐Reference
 
 | Name                                                         | Link                                                         |
@@ -54,3 +52,27 @@ This application has next features.
 | Orbit MVI \| Android ViewModel module                        | https://orbit-mvi.org/Android-ViewModel/overview             |
 | MVI Architecture - Android Tutorial for Beginners - Step By Step Guide | https://blog.mindorks.com/mvi-architecture-android-tutorial-for-beginners-step-by-step-guide |
 | Coil \| Jetpack Compose                                      | https://coil-kt.github.io/coil/compose/                      |
+
+## 💡License
+
+```
+Copyright (c) [2022] [Yusuke Katsuragawa]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
