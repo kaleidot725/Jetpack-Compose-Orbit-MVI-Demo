@@ -49,7 +49,7 @@ val appModule = module {
         DetailsViewModel(
             id = id,
             loadPokemonDetailsUseCase = get(),
-            loadPokemonRevolutionUseCase = get()
+            loadPokemonEvolutionUseCase = get()
         )
     }
 }
