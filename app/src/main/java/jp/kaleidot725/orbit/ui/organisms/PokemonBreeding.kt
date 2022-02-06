@@ -1,7 +1,6 @@
 package jp.kaleidot725.orbit.ui.organisms
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,6 +13,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.flowlayout.FlowRow
 import jp.kaleidot725.orbit.R
 import jp.kaleidot725.orbit.data.entity.PokemonEntity
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
@@ -32,7 +32,7 @@ fun PokemonBreeding(pokemonEntity: PokemonEntity, modifier: Modifier = Modifier)
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Row {
+        FlowRow {
             PokemonWeight(weight = pokemonEntity.weight, modifier = Modifier.padding(end = 8.dp))
             PokemonHeight(height = pokemonEntity.height, modifier = Modifier.padding(end = 8.dp))
         }

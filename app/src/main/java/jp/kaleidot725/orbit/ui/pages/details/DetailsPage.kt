@@ -21,7 +21,7 @@ import jp.kaleidot725.orbit.ui.molecules.ErrorMessage
 import jp.kaleidot725.orbit.ui.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.molecules.PokemonPortrait
 import jp.kaleidot725.orbit.ui.organisms.PokemonBreeding
-import jp.kaleidot725.orbit.ui.organisms.PokemonRevolutions
+import jp.kaleidot725.orbit.ui.organisms.PokemonEvolutions
 import jp.kaleidot725.orbit.ui.organisms.PokemonTypes
 import jp.kaleidot725.orbit.ui.organisms.PokemonWeaknesses
 import kotlinx.coroutines.flow.collect
@@ -59,12 +59,12 @@ fun DetailsPage(
             }
             UiStatus.Success -> {
                 val details = state.details ?: return@Scaffold
-                val revolutions = state.revolutions
+                val evolutions = state.evolutions
 
                 Box(modifier = Modifier.fillMaxSize()) {
                     PokemonDataList1(
                         details = details,
-                        revolutions = revolutions,
+                        evolutions = evolutions,
                         modifier = Modifier.fillMaxSize()
                     )
 
@@ -84,7 +84,7 @@ fun DetailsPage(
 @Composable
 private fun PokemonDataList(
     details: PokemonDetails,
-    revolutions: List<PokemonDetails>,
+    evolutions: List<PokemonDetails>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier) {
@@ -131,8 +131,8 @@ private fun PokemonDataList(
         }
 
         item {
-            PokemonRevolutions(
-                details = revolutions,
+            PokemonEvolutions(
+                details = evolutions,
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()

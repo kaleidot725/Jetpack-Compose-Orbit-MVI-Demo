@@ -1,7 +1,6 @@
 package jp.kaleidot725.orbit.ui.organisms
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,6 +15,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.flowlayout.FlowRow
 import jp.kaleidot725.orbit.R
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
@@ -33,7 +33,7 @@ fun PokemonTypes(details: PokemonDetails, modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Row {
+        FlowRow {
             details.types.forEach { type ->
                 PokemonType(typeEntity = type, modifier = Modifier.padding(end = 8.dp))
             }

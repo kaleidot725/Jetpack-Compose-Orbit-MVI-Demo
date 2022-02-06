@@ -6,5 +6,5 @@ import jp.kaleidot725.orbit.ui.common.UiStatus
 data class DetailsState(
     val status: UiStatus = UiStatus.Loading,
     val details: PokemonDetails? = null,
-    val revolutions: List<PokemonDetails> = emptyList()
+    val evolutions: List<PokemonDetails> = emptyList()
 )

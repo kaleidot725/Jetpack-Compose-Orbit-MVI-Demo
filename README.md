@@ -1,6 +1,7 @@
 # Pokemon Library with Jetpack Compose
 
-This repository contains a Pokemon Library application that is implemented MVI architecture using Koin, Jetpack Compose, Navigation Compose, Orbit MVI.
+This repository contains a Pokemon Library application that is implemented MVI architecture using
+Koin, Jetpack Compose, Navigation Compose, Orbit MVI.
 
 <img src="docs/title.png">
 
@@ -8,7 +9,7 @@ This repository contains a Pokemon Library application that is implemented MVI a
 
 This application has next features.
 
-- Display pokemon image and type, weakeness, breeding, revolutions.
+- Display pokemon image and type, weakeness, breeding, evolutions.
 - Search pokemon.
 - Download pokemon character images.
 

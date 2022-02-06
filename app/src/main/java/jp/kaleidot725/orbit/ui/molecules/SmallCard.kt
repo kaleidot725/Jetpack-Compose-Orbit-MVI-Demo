@@ -8,14 +8,24 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun PokemonWeight(weight: String, modifier: Modifier = Modifier) {
-    Card(elevation = 2.dp, shape = RoundedCornerShape(16.dp), modifier = modifier) {
+fun SmallCard(
+    text: String,
+    modifier: Modifier = Modifier,
+    backGroundColor: Color = MaterialTheme.colors.surface,
+) {
+    Card(
+        elevation = 2.dp,
+        backgroundColor = backGroundColor,
+        shape = RoundedCornerShape(16.dp),
+        modifier = modifier
+    ) {
         Text(
-            text = "Weight : $weight",
+            text = text,
             style = MaterialTheme.typography.h6,
             modifier = Modifier
                 .padding(vertical = 2.dp)
@@ -26,9 +36,6 @@ fun PokemonWeight(weight: String, modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun PokemonWeight_Preview() {
-    PokemonWeight(
-        weight = "19.65KG",
-        modifier = Modifier.wrapContentSize()
-    )
+private fun SmallCard_Preview() {
+    SmallCard(text = "HEIGHT: TEXT", modifier = Modifier.wrapContentSize())
 }

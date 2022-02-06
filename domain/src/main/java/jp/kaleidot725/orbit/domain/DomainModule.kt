@@ -2,7 +2,7 @@ package jp.kaleidot725.orbit.domain
 
 import jp.kaleidot725.orbit.domain.usecase.FetchAllPokemonUseCase
 import jp.kaleidot725.orbit.domain.usecase.LoadPokemonDetailsUseCase
-import jp.kaleidot725.orbit.domain.usecase.LoadPokemonRevolutionUseCase
+import jp.kaleidot725.orbit.domain.usecase.LoadPokemonEvolutionUseCase
 import jp.kaleidot725.orbit.domain.usecase.SearchPokemonFromNameUseCase
 import org.koin.dsl.module
 
@@ -14,7 +14,7 @@ val domainModule = module {
         LoadPokemonDetailsUseCase(pokemonRepository = get())
     }
     factory {
-        LoadPokemonRevolutionUseCase(pokemonRepository = get())
+        LoadPokemonEvolutionUseCase(pokemonRepository = get())
     }
     factory {
         SearchPokemonFromNameUseCase(pokemonRepository = get())

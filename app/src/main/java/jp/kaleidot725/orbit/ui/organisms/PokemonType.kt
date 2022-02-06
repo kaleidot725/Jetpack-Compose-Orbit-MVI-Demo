@@ -1,39 +1,25 @@
 package jp.kaleidot725.orbit.ui.molecules
 
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
-import jp.kaleidot725.orbit.data.entity.WeaknessEntity
-import jp.kaleidot725.orbit.data.entity.WeaknessEntity.Companion.toPokemonType
+import jp.kaleidot725.orbit.data.entity.TypeEntity
+import jp.kaleidot725.orbit.data.entity.TypeEntity.Companion.toPokemonType
 import jp.kaleidot725.orbit.data.enum.PokemonType
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS
 import jp.kaleidot725.orbit.ui.theme.Colors
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-fun PokemonWeakness(weakness: WeaknessEntity, modifier: Modifier = Modifier) {
-    Card(
-        elevation = 2.dp,
-        shape = RoundedCornerShape(16.dp),
-        backgroundColor = weakness.toPokemonType().toColor(),
+fun PokemonType(typeEntity: TypeEntity, modifier: Modifier = Modifier) {
+    SmallCard(
+        text = typeEntity.value,
+        backGroundColor = typeEntity.toPokemonType().toColor(),
         modifier = modifier
-    ) {
-        Text(
-            text = weakness.value,
-            style = MaterialTheme.typography.h6,
-            modifier = Modifier
-                .padding(vertical = 2.dp)
-                .padding(horizontal = 8.dp)
-        )
-    }
+    )
 }
 
 private fun PokemonType.toColor(): androidx.compose.ui.graphics.Color {
@@ -59,9 +45,13 @@ private fun PokemonType.toColor(): androidx.compose.ui.graphics.Color {
 
 @Preview
 @Composable
-private fun PokemonWeakness_Preview() {
-    PokemonWeakness(
-        weakness = SAMPLE_POKEMON_DETAILS.weaknesses.first(),
-        modifier = Modifier.wrapContentSize()
-    )
+private fun PokemonType_Preview() {
+    Column {
+        SAMPLE_POKEMON_DETAILS.types.forEach { type ->
+            PokemonType(
+                typeEntity = type,
+                modifier = Modifier.wrapContentSize()
+            )
+        }
+    }
 }

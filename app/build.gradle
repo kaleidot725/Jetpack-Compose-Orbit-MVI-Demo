@@ -63,6 +63,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
 
+    // Accompanist
+    implementation "com.google.accompanist:accompanist-flowlayout:0.24.1-alpha"
+
     // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.4.0-rc01")
 

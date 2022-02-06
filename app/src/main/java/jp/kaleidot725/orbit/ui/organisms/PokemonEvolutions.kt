@@ -15,13 +15,13 @@ import androidx.compose.ui.unit.dp
 import jp.kaleidot725.orbit.R
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
 import jp.kaleidot725.orbit.ui.SAMPLE_POKEMON_DETAILS_LIST
-import jp.kaleidot725.orbit.ui.molecules.pokemon.PokemonRevolution
+import jp.kaleidot725.orbit.ui.molecules.pokemon.PokemonEvolution
 
 @Composable
-fun PokemonRevolutions(details: List<PokemonDetails>, modifier: Modifier = Modifier) {
+fun PokemonEvolutions(details: List<PokemonDetails>, modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Text(
-            text = stringResource(R.string.revolution_title),
+            text = stringResource(R.string.evolution_title),
             style = MaterialTheme.typography.h5,
             fontStyle = FontStyle.Italic,
             fontWeight = FontWeight.Bold
@@ -31,7 +31,7 @@ fun PokemonRevolutions(details: List<PokemonDetails>, modifier: Modifier = Modif
 
         Column {
             details.forEach {
-                PokemonRevolution(details = it)
+                PokemonEvolution(details = it)
 
                 Spacer(modifier = Modifier.height(8.dp))
             }
@@ -41,6 +41,6 @@ fun PokemonRevolutions(details: List<PokemonDetails>, modifier: Modifier = Modif
 
 @Preview
 @Composable
-private fun PokemonRevolutions_Preview() {
-    PokemonRevolutions(SAMPLE_POKEMON_DETAILS_LIST)
+private fun PokemonEvolutions_Preview() {
+    PokemonEvolutions(SAMPLE_POKEMON_DETAILS_LIST)
 }
