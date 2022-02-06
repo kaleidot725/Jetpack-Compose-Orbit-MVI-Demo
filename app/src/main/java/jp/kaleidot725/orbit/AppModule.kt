@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalSavedStateRegistryOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
-import jp.kaleidot725.orbit.ui.pages.details.DetailsViewModel
-import jp.kaleidot725.orbit.ui.pages.init.InitViewModel
-import jp.kaleidot725.orbit.ui.pages.library.LibraryViewModel
+import jp.kaleidot725.orbit.ui.components.pages.details.DetailsViewModel
+import jp.kaleidot725.orbit.ui.components.pages.init.InitViewModel
+import jp.kaleidot725.orbit.ui.components.pages.library.LibraryViewModel
 import org.koin.androidx.viewmodel.ViewModelOwner
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.androidx.viewmodel.koin.getViewModel

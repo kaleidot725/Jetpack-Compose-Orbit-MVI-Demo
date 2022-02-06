@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import jp.kaleidot725.orbit.ui.pages.details.DetailsPage
-import jp.kaleidot725.orbit.ui.pages.init.InitPage
-import jp.kaleidot725.orbit.ui.pages.library.LibraryPage
+import jp.kaleidot725.orbit.ui.components.pages.details.DetailsPage
+import jp.kaleidot725.orbit.ui.components.pages.init.InitPage
+import jp.kaleidot725.orbit.ui.components.pages.library.LibraryPage
 import jp.kaleidot725.orbit.ui.screen.Screen
 import jp.kaleidot725.orbit.ui.theme.OrbitTheme
 import org.koin.core.parameter.parametersOf
