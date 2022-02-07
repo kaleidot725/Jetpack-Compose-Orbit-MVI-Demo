@@ -7,6 +7,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import jp.kaleidot725.orbit.ui.common.UiStatus
@@ -19,7 +20,7 @@ fun InitPage(
     viewModel: InitViewModel,
     onCompleted: () -> Unit
 ) {
-    val state = viewModel.container.stateFlow.collectAsState().value
+    val state by viewModel.container.stateFlow.collectAsState()
 
     LaunchedEffect(viewModel) {
         viewModel.container.sideEffectFlow.collect {

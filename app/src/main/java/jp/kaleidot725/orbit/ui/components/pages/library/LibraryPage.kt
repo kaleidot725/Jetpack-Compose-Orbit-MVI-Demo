@@ -12,6 +12,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
@@ -28,7 +29,7 @@ fun LibraryPage(
     viewModel: LibraryViewModel,
     onShowDetail: (id: Int) -> Unit
 ) {
-    val state = viewModel.container.stateFlow.collectAsState().value
+    val state by viewModel.container.stateFlow.collectAsState()
 
     LaunchedEffect(viewModel) {
         viewModel.container.sideEffectFlow.collect {
@@ -76,13 +77,13 @@ fun LibraryPage(
                     }
                 }
 
-                when (state.status) {
+                when (val status = state.status) {
                     UiStatus.Loading -> {
                         LoadingIndicator(modifier = Modifier.fillMaxSize())
                     }
                     is UiStatus.Failed -> {
                         ErrorMessage(
-                            message = state.status.message,
+                            message = status.message,
                             modifier = Modifier.fillMaxSize()
                         )
                     }

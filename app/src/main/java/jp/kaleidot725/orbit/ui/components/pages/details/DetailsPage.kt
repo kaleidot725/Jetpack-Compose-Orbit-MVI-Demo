@@ -11,6 +11,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -32,7 +33,7 @@ fun DetailsPage(
     viewModel: DetailsViewModel,
     onBack: () -> Unit
 ) {
-    val state = viewModel.container.stateFlow.collectAsState().value
+    val state by viewModel.container.stateFlow.collectAsState()
 
     LaunchedEffect(viewModel) {
         viewModel.container.sideEffectFlow.collect {
@@ -43,7 +44,7 @@ fun DetailsPage(
     }
 
     Scaffold {
-        when (state.status) {
+        when (val status = state.status) {
             UiStatus.Loading -> {
                 LoadingIndicator(
                     modifier = Modifier
@@ -52,7 +53,7 @@ fun DetailsPage(
             }
             is UiStatus.Failed -> {
                 ErrorMessage(
-                    message = state.status.message,
+                    message = status.message,
                     modifier = Modifier
                         .fillMaxSize()
                 )
