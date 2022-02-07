@@ -23,26 +23,26 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
             OrbitTheme {
                 window.statusBarColor = MaterialTheme.colors.primarySurface.toArgb()
                 Box(modifier = Modifier.fillMaxSize()) {
+                    val navController = rememberNavController()
                     NavHost(navController, startDestination = Screen.Init.route) {
-                        composable(Screen.Init.route) {
+                        composable(route = Screen.Init.route) {
                             InitPage(
                                 viewModel = getComposeViewModel(),
-                                onCompleted = { navController.navigate(Screen.Library.route) }
+                                onCompleted = { navController.navigate(route = Screen.Library.route) }
                             )
                         }
-                        composable(Screen.Library.route) {
+                        composable(route = Screen.Library.route) {
                             LibraryPage(
                                 viewModel = getComposeViewModel(),
                                 onShowDetail = { id ->
-                                    navController.navigate(Screen.Details.createRoute(id))
+                                    navController.navigate(route = Screen.Details.createRoute(id))
                                 }
                             )
                         }
-                        composable(Screen.Details.route) {
+                        composable(route = Screen.Details.route) {
                             DetailsPage(
                                 viewModel = getComposeViewModel(
                                     parameters = { parametersOf(Screen.Details.getArgumentId(it)) }

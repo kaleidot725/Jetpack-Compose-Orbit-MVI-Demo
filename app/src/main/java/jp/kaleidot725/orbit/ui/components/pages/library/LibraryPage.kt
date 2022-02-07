@@ -63,9 +63,9 @@ fun LibraryPage(
                         setupTwoGrid(state.detailsList) { one, two ->
                             PokemonTwoCard(
                                 one = one,
-                                onClickedOne = { one?.let { onShowDetail.invoke(it.pokemon.id) } },
+                                onClickedOne = { one?.let { viewModel.showDetails(it.pokemon.id) } },
                                 two = two,
-                                onClickedTwo = { two?.let { onShowDetail.invoke(it.pokemon.id) } },
+                                onClickedTwo = { two?.let { viewModel.showDetails(it.pokemon.id) } },
                                 modifier = Modifier
                                     .height(150.dp)
                                     .fillMaxWidth()
