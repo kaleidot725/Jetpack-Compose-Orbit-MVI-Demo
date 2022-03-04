@@ -1,4 +1,4 @@
-# Pokemon Library with Jetpack Compose
+# Jetpack-Compose-Orbit-MVI-Demo
 
 This repository contains a Pokemon Library application that is implemented MVI architecture using
 Koin, Jetpack Compose, Navigation Compose, Orbit MVI.
