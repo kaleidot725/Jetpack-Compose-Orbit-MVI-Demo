@@ -23,7 +23,7 @@ This application is implemented by MVI architecture based on MVVM + Repository P
 
 This application is implemented MVI data flow by Orbit MVI
 
-<img src="docs/dataflow.png">
+<img src="docs/dataflow.png" width="500">
 
 ## 📦Module
 
