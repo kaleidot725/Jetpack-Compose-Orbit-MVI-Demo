@@ -17,7 +17,7 @@ This application has next features.
 
 This application is implemented by MVI architecture based on MVVM + Repository Pattern.
 
-<img src="docs/architecture.png">
+<img src="docs/architecture.png" width="700">
 
 ## 💽 DataFlow
 
