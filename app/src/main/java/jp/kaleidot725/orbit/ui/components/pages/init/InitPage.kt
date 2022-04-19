@@ -2,6 +2,7 @@ package jp.kaleidot725.orbit.ui.components.pages.init
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -31,7 +32,7 @@ fun InitPage(
     }
 
     Scaffold {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Box(modifier = Modifier.fillMaxSize().padding(it)) {
             when (state.status) {
                 UiStatus.Loading -> {
                     DownloadingMessage(
@@ -49,6 +50,7 @@ fun InitPage(
                     )
                 }
                 UiStatus.Success -> Unit
+                null -> Unit
             }
         }
     }
