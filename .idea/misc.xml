@@ -180,6 +180,26 @@
         <entry key="../../../../../layout/compose-model-1644231382456.xml" value="1.1671018276762402" />
         <entry key="../../../../../layout/compose-model-1644231389093.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1644231396355.xml" value="0.9216494845360824" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/BackButton.kt" value="2.0" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/ErrorMessage.kt" value="2.0" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/LoadingIndicator.kt" value="0.32573839662447257" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/LoadingMessage.kt" value="0.6847414880201765" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/RetryButton.kt" value="2.0" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/SearchBar.kt" value="0.5027777777777778" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/SmallCard.kt" value="1.3276283618581908" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/molecules/TopBar.kt" value="0.5027777777777778" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/DownloadRetryMessage.kt" value="1.1195876288659794" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/DownloadingMessage.kt" value="1.4177545691906006" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonBreeding.kt" value="0.6142533936651584" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonEvolutions.kt" value="0.5027777777777778" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonHeight.kt" value="1.2716627634660422" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonPortrait.kt" value="0.5027777777777778" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonTwoCard.kt" value="0.5027777777777778" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonType.kt" value="0.5857359635811836" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonTypes.kt" value="0.5027777777777778" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonWeakness.kt" value="0.5857359635811836" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonWeaknesses.kt" value="0.5027777777777778" />
+        <entry key="app/src/main/java/jp/kaleidot725/orbit/ui/components/organisms/PokemonWeight.kt" value="1.1431578947368422" />
         <entry key="app/src/main/res/drawable/ic_error.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/ic_question.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/ic_question_white.xml" value="0.1365" />

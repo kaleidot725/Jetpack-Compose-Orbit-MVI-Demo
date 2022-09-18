@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,30 +23,20 @@ import jp.kaleidot725.orbit.ui.components.organisms.PokemonBreeding
 import jp.kaleidot725.orbit.ui.components.organisms.PokemonEvolutions
 import jp.kaleidot725.orbit.ui.components.organisms.PokemonTypes
 import jp.kaleidot725.orbit.ui.components.organisms.PokemonWeaknesses
-import kotlinx.coroutines.flow.collect
 import jp.kaleidot725.orbit.ui.components.pages.details.PokemonDataList as PokemonDataList1
 
 @Composable
 fun DetailsPage(
-    viewModel: DetailsViewModel,
+    state: DetailsState,
     onBack: () -> Unit
 ) {
-    val state by viewModel.container.stateFlow.collectAsState()
-
-    LaunchedEffect(viewModel) {
-        viewModel.container.sideEffectFlow.collect {
-            when (it) {
-                is DetailsSideEffect.Back -> onBack()
-            }
-        }
-    }
-
     Scaffold {
         when (val status = state.status) {
             UiStatus.Loading -> {
                 LoadingIndicator(
                     modifier = Modifier
                         .fillMaxSize()
+                        .padding(it)
                 )
             }
             is UiStatus.Failed -> {
@@ -56,13 +44,18 @@ fun DetailsPage(
                     message = status.message,
                     modifier = Modifier
                         .fillMaxSize()
+                        .padding(it)
                 )
             }
             UiStatus.Success -> {
                 val details = state.details ?: return@Scaffold
                 val evolutions = state.evolutions
 
-                Box(modifier = Modifier.fillMaxSize()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(it)
+                ) {
                     PokemonDataList1(
                         details = details,
                         evolutions = evolutions,

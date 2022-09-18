@@ -10,9 +10,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import jp.kaleidot725.orbit.data.entity.PokemonDetails
@@ -22,23 +19,13 @@ import jp.kaleidot725.orbit.ui.components.molecules.LoadingIndicator
 import jp.kaleidot725.orbit.ui.components.molecules.SearchBar
 import jp.kaleidot725.orbit.ui.components.molecules.TopBar
 import jp.kaleidot725.orbit.ui.components.organisms.PokemonTwoCard
-import kotlinx.coroutines.flow.collect
 
 @Composable
 fun LibraryPage(
-    viewModel: LibraryViewModel,
-    onShowDetail: (id: Int) -> Unit
+    state: LibraryState,
+    onShowDetail: (id: Int) -> Unit,
+    onSearchPokemon: (keyword: String) -> Unit
 ) {
-    val state by viewModel.container.stateFlow.collectAsState()
-
-    LaunchedEffect(viewModel) {
-        viewModel.container.sideEffectFlow.collect {
-            when (it) {
-                is LibrarySideEffect.ShowDetails -> onShowDetail(it.id)
-            }
-        }
-    }
-
     Scaffold(
         topBar = {
             TopBar(
@@ -48,12 +35,16 @@ fun LibraryPage(
             )
         },
         content = {
-            Box(modifier = Modifier.fillMaxSize()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(it)
+            ) {
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     item {
                         SearchBar(
                             searchText = state.searchText,
-                            onChangedSearchText = { viewModel.searchPokemon(it) },
+                            onChangedSearchText = { onSearchPokemon(it) },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(8.dp)
@@ -64,9 +55,9 @@ fun LibraryPage(
                         setupTwoGrid(state.detailsList) { one, two ->
                             PokemonTwoCard(
                                 one = one,
-                                onClickedOne = { one?.let { viewModel.showDetails(it.pokemon.id) } },
+                                onClickedOne = { one?.let { onShowDetail(it.pokemon.id) } },
                                 two = two,
-                                onClickedTwo = { two?.let { viewModel.showDetails(it.pokemon.id) } },
+                                onClickedTwo = { two?.let { onShowDetail(it.pokemon.id) } },
                                 modifier = Modifier
                                     .height(150.dp)
                                     .fillMaxWidth()
