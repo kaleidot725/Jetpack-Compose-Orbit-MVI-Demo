@@ -75,6 +75,7 @@ dependencies {
     // Orbit
     implementation "org.orbit-mvi:orbit-core:$orbit_version"
     implementation "org.orbit-mvi:orbit-viewmodel:$orbit_version"
+    implementation "org.orbit-mvi:orbit-compose:$orbit_version"
     testImplementation "org.orbit-mvi:orbit-test:$orbit_version"
 
     // Coil
