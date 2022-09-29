@@ -79,7 +79,7 @@ private fun NavGraphBuilder.addLibrary(navController: NavController) {
             }
         }
         LibraryPage(
-            state,
+            state = state,
             onShowDetail = { id -> viewModel.showDetails(id) },
             onSearchPokemon = { text -> viewModel.searchPokemon(text) }
         )
